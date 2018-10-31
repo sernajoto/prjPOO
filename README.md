@@ -1,0 +1,8 @@
+# prjPOOGuilhermeAndreBarbara
+
+## Trabalho da disciplina de Programação Orientada a Objetos
+
+### Autores
+Guilherme Sernajoto  
+André Constancio  
+Barbara Sajo  
