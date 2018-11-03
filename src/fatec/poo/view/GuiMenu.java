@@ -1,18 +1,19 @@
+package fatec.poo.view;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fatec.poo.view;
 
 /**
  *
- * @author guilh
+ * @author deco_
  */
 public class GuiMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form GuiMenu
+     * Creates new form Menu
      */
     public GuiMenu() {
         initComponents();
@@ -27,25 +28,104 @@ public class GuiMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuIteCadas = new javax.swing.JMenu();
+        jMenuIteCurso = new javax.swing.JMenuItem();
+        jMenuIteTurma = new javax.swing.JMenuItem();
+        jMenuIteIntrutor = new javax.swing.JMenuItem();
+        jMenuIteAluno = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuIteSair = new javax.swing.JMenuItem();
+        jMenuTitOperacoes = new javax.swing.JMenu();
+        jMenuIteAlocInstrutor = new javax.swing.JMenuItem();
+        jMenuIteEfetMatricula = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Trabalho POO");
+        setSize(new java.awt.Dimension(0, 0));
+
+        jMenuIteCadas.setText("Cadastro");
+
+        jMenuIteCurso.setText("Curso");
+        jMenuIteCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteCursoActionPerformed(evt);
+            }
+        });
+        jMenuIteCadas.add(jMenuIteCurso);
+
+        jMenuIteTurma.setText("Turma");
+        jMenuIteCadas.add(jMenuIteTurma);
+
+        jMenuIteIntrutor.setText("Instrutor");
+        jMenuIteIntrutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteIntrutorActionPerformed(evt);
+            }
+        });
+        jMenuIteCadas.add(jMenuIteIntrutor);
+
+        jMenuIteAluno.setText("Aluno");
+        jMenuIteCadas.add(jMenuIteAluno);
+        jMenuIteCadas.add(jSeparator1);
+
+        jMenuIteSair.setText("Sair");
+        jMenuIteSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteSairActionPerformed(evt);
+            }
+        });
+        jMenuIteCadas.add(jMenuIteSair);
+
+        jMenuBar1.add(jMenuIteCadas);
+
+        jMenuTitOperacoes.setText("Operações");
+
+        jMenuIteAlocInstrutor.setText("Alocar Instrutor");
+        jMenuTitOperacoes.add(jMenuIteAlocInstrutor);
+
+        jMenuIteEfetMatricula.setText("Efetuar Matrícula");
+        jMenuIteEfetMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteEfetMatriculaActionPerformed(evt);
+            }
+        });
+        jMenuTitOperacoes.add(jMenuIteEfetMatricula);
+
+        jMenuBar1.add(jMenuTitOperacoes);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 635, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 329, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jMenuIteEfetMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteEfetMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuIteEfetMatriculaActionPerformed
+
+    private void jMenuIteSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_jMenuIteSairActionPerformed
+
+    private void jMenuIteCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteCursoActionPerformed
+      new GuiCurso().setVisible(true);
+    }//GEN-LAST:event_jMenuIteCursoActionPerformed
+
+    private void jMenuIteIntrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteIntrutorActionPerformed
+      new GuiInstrutor().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuIteIntrutorActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -69,6 +149,13 @@ public class GuiMenu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GuiMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +166,16 @@ public class GuiMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuIteAlocInstrutor;
+    private javax.swing.JMenuItem jMenuIteAluno;
+    private javax.swing.JMenu jMenuIteCadas;
+    private javax.swing.JMenuItem jMenuIteCurso;
+    private javax.swing.JMenuItem jMenuIteEfetMatricula;
+    private javax.swing.JMenuItem jMenuIteIntrutor;
+    private javax.swing.JMenuItem jMenuIteSair;
+    private javax.swing.JMenuItem jMenuIteTurma;
+    private javax.swing.JMenu jMenuTitOperacoes;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
