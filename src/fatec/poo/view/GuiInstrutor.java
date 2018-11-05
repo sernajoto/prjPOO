@@ -7,7 +7,8 @@ package fatec.poo.view;
 
 /**
  *
- * @author guilh
+ * @author André Constancio
+ * @author Guilherme Sernajoto
  */
 public class GuiInstrutor extends javax.swing.JFrame {
 
@@ -27,21 +28,326 @@ public class GuiInstrutor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLblCPF = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
+        jLblSexo = new javax.swing.JLabel();
+        jLblEndereco = new javax.swing.JLabel();
+        jLblBairro = new javax.swing.JLabel();
+        jLblCidade = new javax.swing.JLabel();
+        jLblEstado = new javax.swing.JLabel();
+        jLblRG = new javax.swing.JLabel();
+        jLblFormacao = new javax.swing.JLabel();
+        jLblEmail = new javax.swing.JLabel();
+        jLblDataNascto = new javax.swing.JLabel();
+        jLblEstadoCivil = new javax.swing.JLabel();
+        jLblNoEndereco = new javax.swing.JLabel();
+        jLblCEP = new javax.swing.JLabel();
+        jLblTelRes = new javax.swing.JLabel();
+        jLblCel = new javax.swing.JLabel();
+        jLblAreaAtuac = new javax.swing.JLabel();
+        jFrmtdTxtFCPF = new javax.swing.JFormattedTextField();
+        jFrmtdTxtFRG = new javax.swing.JFormattedTextField();
+        jFrmtdTxtFDataNascto = new javax.swing.JFormattedTextField();
+        jFrmtdTxtFCEP = new javax.swing.JFormattedTextField();
+        jFrmtdTxtFTelRes = new javax.swing.JFormattedTextField();
+        jFrmtdTxtFCel = new javax.swing.JFormattedTextField();
+        jTxtFNome = new javax.swing.JTextField();
+        jTxtFEndereco = new javax.swing.JTextField();
+        jTxtFBairro = new javax.swing.JTextField();
+        jTxtFCidade = new javax.swing.JTextField();
+        jTxtFFormacao = new javax.swing.JTextField();
+        jTxtFEmail = new javax.swing.JTextField();
+        jTxtFNoEndereco = new javax.swing.JTextField();
+        jTxtFAreaAtuac = new javax.swing.JTextField();
+        jCbBxSexo = new javax.swing.JComboBox<>();
+        jCbBxEstado = new javax.swing.JComboBox<>();
+        jCbBxEstadoCiv = new javax.swing.JComboBox<>();
+        jBtnConsultar = new javax.swing.JButton();
+        jBtnInserir = new javax.swing.JButton();
+        jBtnAlterar = new javax.swing.JButton();
+        jBtnExcluir = new javax.swing.JButton();
+        jBtnSair = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastar Instrutor");
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
+
+        jLblCPF.setText("CPF");
+
+        jLblNome.setText("Nome");
+
+        jLblSexo.setText("Sexo");
+
+        jLblEndereco.setText("Endereço");
+
+        jLblBairro.setText("Bairro");
+
+        jLblCidade.setText("Cidade");
+
+        jLblEstado.setText("Estado");
+
+        jLblRG.setText("RG");
+
+        jLblFormacao.setText("Formação");
+
+        jLblEmail.setText("Email");
+
+        jLblDataNascto.setText("Data Nascto.");
+
+        jLblEstadoCivil.setText("Estado Civil");
+
+        jLblNoEndereco.setText("Nº");
+
+        jLblCEP.setText("CEP");
+
+        jLblTelRes.setText("Tel. Res.");
+
+        jLblCel.setText("Celular");
+
+        jLblAreaAtuac.setText("Área de Atuação");
+
+        try {
+            jFrmtdTxtFCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFrmtdTxtFRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFrmtdTxtFRG.setEnabled(false);
+
+        try {
+            jFrmtdTxtFDataNascto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFrmtdTxtFDataNascto.setEnabled(false);
+
+        try {
+            jFrmtdTxtFCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFrmtdTxtFCEP.setEnabled(false);
+
+        try {
+            jFrmtdTxtFTelRes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFrmtdTxtFTelRes.setEnabled(false);
+
+        try {
+            jFrmtdTxtFCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFrmtdTxtFCel.setEnabled(false);
+
+        jTxtFNome.setEnabled(false);
+
+        jTxtFEndereco.setEnabled(false);
+
+        jTxtFBairro.setEnabled(false);
+
+        jTxtFCidade.setEnabled(false);
+
+        jTxtFFormacao.setEnabled(false);
+
+        jTxtFEmail.setEnabled(false);
+
+        jTxtFNoEndereco.setEnabled(false);
+
+        jTxtFAreaAtuac.setEnabled(false);
+
+        jCbBxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
+        jCbBxSexo.setEnabled(false);
+
+        jCbBxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCbBxEstado.setEnabled(false);
+
+        jCbBxEstadoCiv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casado", "Solteiro" }));
+        jCbBxEstadoCiv.setEnabled(false);
+
+        jBtnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
+        jBtnConsultar.setText("Consultar");
+
+        jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
+        jBtnInserir.setText("Inserir");
+        jBtnInserir.setEnabled(false);
+
+        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
+        jBtnAlterar.setText("Alterar");
+        jBtnAlterar.setEnabled(false);
+
+        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
+        jBtnExcluir.setText("Excluir");
+        jBtnExcluir.setEnabled(false);
+
+        jBtnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
+        jBtnSair.setText("Sair");
+        jBtnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBtnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jBtnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLblEmail))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLblCPF, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblSexo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblBairro, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblCidade, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblRG, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jLblFormacao))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFrmtdTxtFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTxtFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLblEstado)
+                                .addGap(53, 53, 53))
+                            .addComponent(jTxtFBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCbBxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFrmtdTxtFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLblAreaAtuac))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(336, 336, 336)
+                        .addComponent(jTxtFAreaAtuac, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblDataNascto)
+                            .addComponent(jLblEstadoCivil)
+                            .addComponent(jLblNoEndereco)
+                            .addComponent(jLblCEP)
+                            .addComponent(jLblCel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLblTelRes)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCbBxEstadoCiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFrmtdTxtFDataNascto)
+                            .addComponent(jFrmtdTxtFTelRes)
+                            .addComponent(jFrmtdTxtFCEP)
+                            .addComponent(jTxtFNoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFrmtdTxtFCel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblCPF)
+                    .addComponent(jFrmtdTxtFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblNome)
+                    .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblDataNascto)
+                    .addComponent(jFrmtdTxtFDataNascto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblSexo)
+                    .addComponent(jCbBxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblEstadoCivil)
+                    .addComponent(jCbBxEstadoCiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblEndereco)
+                    .addComponent(jTxtFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblNoEndereco)
+                    .addComponent(jTxtFNoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblBairro)
+                    .addComponent(jTxtFBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblCEP)
+                    .addComponent(jFrmtdTxtFCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblCidade)
+                    .addComponent(jTxtFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblEstado)
+                    .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblTelRes)
+                    .addComponent(jFrmtdTxtFTelRes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblRG)
+                    .addComponent(jFrmtdTxtFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblCel)
+                    .addComponent(jFrmtdTxtFCel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblFormacao)
+                    .addComponent(jTxtFFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblAreaAtuac)
+                    .addComponent(jTxtFAreaAtuac, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblEmail)
+                    .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnConsultar)
+                    .addComponent(jBtnInserir)
+                    .addComponent(jBtnAlterar)
+                    .addComponent(jBtnExcluir)
+                    .addComponent(jBtnSair))
+                .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("Cadastrar Instrutor");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBtnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +385,44 @@ public class GuiInstrutor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAlterar;
+    private javax.swing.JButton jBtnConsultar;
+    private javax.swing.JButton jBtnExcluir;
+    private javax.swing.JButton jBtnInserir;
+    private javax.swing.JButton jBtnSair;
+    private javax.swing.JComboBox<String> jCbBxEstado;
+    private javax.swing.JComboBox<String> jCbBxEstadoCiv;
+    private javax.swing.JComboBox<String> jCbBxSexo;
+    private javax.swing.JFormattedTextField jFrmtdTxtFCEP;
+    private javax.swing.JFormattedTextField jFrmtdTxtFCPF;
+    private javax.swing.JFormattedTextField jFrmtdTxtFCel;
+    private javax.swing.JFormattedTextField jFrmtdTxtFDataNascto;
+    private javax.swing.JFormattedTextField jFrmtdTxtFRG;
+    private javax.swing.JFormattedTextField jFrmtdTxtFTelRes;
+    private javax.swing.JLabel jLblAreaAtuac;
+    private javax.swing.JLabel jLblBairro;
+    private javax.swing.JLabel jLblCEP;
+    private javax.swing.JLabel jLblCPF;
+    private javax.swing.JLabel jLblCel;
+    private javax.swing.JLabel jLblCidade;
+    private javax.swing.JLabel jLblDataNascto;
+    private javax.swing.JLabel jLblEmail;
+    private javax.swing.JLabel jLblEndereco;
+    private javax.swing.JLabel jLblEstado;
+    private javax.swing.JLabel jLblEstadoCivil;
+    private javax.swing.JLabel jLblFormacao;
+    private javax.swing.JLabel jLblNoEndereco;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblRG;
+    private javax.swing.JLabel jLblSexo;
+    private javax.swing.JLabel jLblTelRes;
+    private javax.swing.JTextField jTxtFAreaAtuac;
+    private javax.swing.JTextField jTxtFBairro;
+    private javax.swing.JTextField jTxtFCidade;
+    private javax.swing.JTextField jTxtFEmail;
+    private javax.swing.JTextField jTxtFEndereco;
+    private javax.swing.JTextField jTxtFFormacao;
+    private javax.swing.JTextField jTxtFNoEndereco;
+    private javax.swing.JTextField jTxtFNome;
     // End of variables declaration//GEN-END:variables
 }
