@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
 
 /**
  *
- * @author guilh
+ * @author André Constancio
+ * @author Guilherme Sernajoto
  */
 public class GuiCurso extends javax.swing.JFrame {
 
@@ -27,21 +23,172 @@ public class GuiCurso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLblSigla = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
+        jLblCargHor = new javax.swing.JLabel();
+        jLblVal = new javax.swing.JLabel();
+        jLblProg = new javax.swing.JLabel();
+        jLblDataVig = new javax.swing.JLabel();
+        jLblValHorInst = new javax.swing.JLabel();
+        jTxtFSigla = new javax.swing.JTextField();
+        jTxtFNome = new javax.swing.JTextField();
+        jTxtFCargaHor = new javax.swing.JTextField();
+        jTxtFVal = new javax.swing.JTextField();
+        jTxtFProg = new javax.swing.JTextField();
+        jFrmtdTxtFDataVig = new javax.swing.JFormattedTextField();
+        jTxtFValHorInst = new javax.swing.JTextField();
+        jBtnAlterar = new javax.swing.JButton();
+        jBtnConsultar = new javax.swing.JButton();
+        jBtnExcluir = new javax.swing.JButton();
+        jBtnSair = new javax.swing.JButton();
+        jBtnInserir = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar Curso");
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
+
+        jLblSigla.setText("Sigla curso");
+
+        jLblNome.setText("Nome curso");
+
+        jLblCargHor.setText("Carga horária");
+
+        jLblVal.setText("Valor curso");
+
+        jLblProg.setText("Programa do curso");
+
+        jLblDataVig.setText("Data de vigência");
+
+        jLblValHorInst.setText("Valor hora instutor");
+
+        jTxtFNome.setEnabled(false);
+
+        jTxtFCargaHor.setEnabled(false);
+
+        jTxtFVal.setEnabled(false);
+
+        jTxtFProg.setEnabled(false);
+
+        try {
+            jFrmtdTxtFDataVig.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFrmtdTxtFDataVig.setEnabled(false);
+
+        jTxtFValHorInst.setEnabled(false);
+
+        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
+        jBtnAlterar.setText("Alterar");
+        jBtnAlterar.setEnabled(false);
+
+        jBtnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
+        jBtnConsultar.setText("Consultar");
+
+        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
+        jBtnExcluir.setText("Excluir");
+        jBtnExcluir.setEnabled(false);
+
+        jBtnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
+        jBtnSair.setText("Sair");
+        jBtnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSairActionPerformed(evt);
+            }
+        });
+
+        jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
+        jBtnInserir.setText("Inserir");
+        jBtnInserir.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jBtnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBtnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblSigla, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblCargHor, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblVal, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblProg, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTxtFSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFCargaHor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFVal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFProg, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLblDataVig, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLblValHorInst, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jFrmtdTxtFDataVig, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTxtFValHorInst, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblSigla)
+                    .addComponent(jTxtFSigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblNome)
+                    .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblCargHor)
+                    .addComponent(jTxtFCargaHor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblDataVig)
+                    .addComponent(jFrmtdTxtFDataVig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblVal)
+                    .addComponent(jTxtFVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblValHorInst)
+                    .addComponent(jTxtFValHorInst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLblProg)
+                    .addComponent(jTxtFProg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnConsultar)
+                    .addComponent(jBtnInserir)
+                    .addComponent(jBtnAlterar)
+                    .addComponent(jBtnExcluir)
+                    .addComponent(jBtnSair))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
+           dispose();
+    }//GEN-LAST:event_jBtnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +226,24 @@ public class GuiCurso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAlterar;
+    private javax.swing.JButton jBtnConsultar;
+    private javax.swing.JButton jBtnExcluir;
+    private javax.swing.JButton jBtnInserir;
+    private javax.swing.JButton jBtnSair;
+    private javax.swing.JFormattedTextField jFrmtdTxtFDataVig;
+    private javax.swing.JLabel jLblCargHor;
+    private javax.swing.JLabel jLblDataVig;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblProg;
+    private javax.swing.JLabel jLblSigla;
+    private javax.swing.JLabel jLblVal;
+    private javax.swing.JLabel jLblValHorInst;
+    private javax.swing.JTextField jTxtFCargaHor;
+    private javax.swing.JTextField jTxtFNome;
+    private javax.swing.JTextField jTxtFProg;
+    private javax.swing.JTextField jTxtFSigla;
+    private javax.swing.JTextField jTxtFVal;
+    private javax.swing.JTextField jTxtFValHorInst;
     // End of variables declaration//GEN-END:variables
 }
