@@ -55,6 +55,11 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuIteCadas.add(jMenuIteCurso);
 
         jMenuIteTurma.setText("Turma");
+        jMenuIteTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteTurmaActionPerformed(evt);
+            }
+        });
         jMenuIteCadas.add(jMenuIteTurma);
 
         jMenuIteIntrutor.setText("Instrutor");
@@ -66,6 +71,11 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuIteCadas.add(jMenuIteIntrutor);
 
         jMenuIteAluno.setText("Aluno");
+        jMenuIteAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteAlunoActionPerformed(evt);
+            }
+        });
         jMenuIteCadas.add(jMenuIteAluno);
         jMenuIteCadas.add(jSeparator1);
 
@@ -125,6 +135,14 @@ public class GuiMenu extends javax.swing.JFrame {
     private void jMenuIteIntrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteIntrutorActionPerformed
       new GuiInstrutor().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuIteIntrutorActionPerformed
+
+    private void jMenuIteTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteTurmaActionPerformed
+      new GuiTurma().setVisible(true);
+    }//GEN-LAST:event_jMenuIteTurmaActionPerformed
+
+    private void jMenuIteAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteAlunoActionPerformed
+      new GuiAluno().setVisible(true);
+    }//GEN-LAST:event_jMenuIteAlunoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
