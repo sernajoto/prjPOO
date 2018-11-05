@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
 
 /**
  *
- * @author deco_
+ * @author André Constancio
+ * @author Guilherme Sernajoto
  */
 public class GuiCurso extends javax.swing.JFrame {
 
@@ -47,9 +43,11 @@ public class GuiCurso extends javax.swing.JFrame {
         jBtnSair = new javax.swing.JButton();
         jBtnInserir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Curso");
-        setSize(new java.awt.Dimension(600, 600));
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
 
         jLblSigla.setText("Sigla curso");
 
@@ -65,12 +63,6 @@ public class GuiCurso extends javax.swing.JFrame {
 
         jLblValHorInst.setText("Valor hora instutor");
 
-        jTxtFSigla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtFSiglaActionPerformed(evt);
-            }
-        });
-
         jTxtFNome.setEnabled(false);
 
         jTxtFCargaHor.setEnabled(false);
@@ -85,11 +77,6 @@ public class GuiCurso extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFrmtdTxtFDataVig.setEnabled(false);
-        jFrmtdTxtFDataVig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFDataVigActionPerformed(evt);
-            }
-        });
 
         jTxtFValHorInst.setEnabled(false);
 
@@ -186,7 +173,7 @@ public class GuiCurso extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLblProg)
                     .addComponent(jTxtFProg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnConsultar)
                     .addComponent(jBtnInserir)
@@ -198,14 +185,6 @@ public class GuiCurso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTxtFSiglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFSiglaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtFSiglaActionPerformed
-
-    private void jFrmtdTxtFDataVigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFDataVigActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFDataVigActionPerformed
 
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
            dispose();

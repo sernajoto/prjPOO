@@ -7,7 +7,8 @@ package fatec.poo.view;
 
 /**
  *
- * @author guilh
+ * @author Guilherme Sernajoto
+ * @author Bárbara Sajo
  */
 public class GuiTurma extends javax.swing.JFrame {
 
@@ -27,18 +28,18 @@ public class GuiTurma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jLblSiglaTurma = new javax.swing.JLabel();
         jTxtFSiglaTur = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
         jTxtFNome = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLblQtdeVagas = new javax.swing.JLabel();
+        jLblCurso = new javax.swing.JLabel();
         jCbBxCurso = new javax.swing.JComboBox<>();
         jTxtFQtdeVagas = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLblPeriodo = new javax.swing.JLabel();
         jCbBxPeriodo = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLblDataInicio = new javax.swing.JLabel();
+        jLblDataTermino = new javax.swing.JLabel();
         jFrmtdTxtFDataInicio = new javax.swing.JFormattedTextField();
         jFrmtdTxtFDataTermino = new javax.swing.JFormattedTextField();
         jBtnInserir = new javax.swing.JButton();
@@ -47,30 +48,33 @@ public class GuiTurma extends javax.swing.JFrame {
         jBtnExcluir = new javax.swing.JButton();
         jBtnSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(600, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastar Turma");
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
 
-        jLabel2.setText("Sigla da Turma");
+        jLblSiglaTurma.setText("Sigla da Turma");
 
         jTxtFSiglaTur.setEnabled(false);
 
-        jLabel3.setText("Nome");
+        jLblNome.setText("Nome");
 
         jTxtFNome.setEnabled(false);
 
-        jLabel4.setText("Qtde Vagas");
+        jLblQtdeVagas.setText("Qtde Vagas");
 
-        jLabel1.setText("Curso");
+        jLblCurso.setText("Curso");
 
         jTxtFQtdeVagas.setEnabled(false);
 
-        jLabel5.setText("Período");
+        jLblPeriodo.setText("Período");
 
         jCbBxPeriodo.setEnabled(false);
 
-        jLabel6.setText("Data início");
+        jLblDataInicio.setText("Data início");
 
-        jLabel7.setText("Data término");
+        jLblDataTermino.setText("Data término");
 
         jFrmtdTxtFDataInicio.setText("  /  /    ");
         jFrmtdTxtFDataInicio.setEnabled(false);
@@ -120,12 +124,12 @@ public class GuiTurma extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
+                    .addComponent(jLblDataInicio)
+                    .addComponent(jLblQtdeVagas)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(jLblSiglaTurma)
+                        .addComponent(jLblCurso, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -137,11 +141,11 @@ public class GuiTurma extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jFrmtdTxtFDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7))
+                                .addComponent(jLblDataTermino))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jTxtFQtdeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(102, 102, 102)
-                                .addComponent(jLabel5)))
+                                .addComponent(jLblPeriodo)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCbBxPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,31 +155,31 @@ public class GuiTurma extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLblCurso)
                     .addComponent(jCbBxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLblSiglaTurma)
                     .addComponent(jTxtFSiglaTur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLblNome)
                     .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLblQtdeVagas)
                     .addComponent(jTxtFQtdeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
+                    .addComponent(jLblPeriodo)
                     .addComponent(jCbBxPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
+                    .addComponent(jLblDataInicio)
+                    .addComponent(jLblDataTermino)
                     .addComponent(jFrmtdTxtFDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFrmtdTxtFDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 70, Short.MAX_VALUE)
+                .addGap(18, 74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnConsultar)
                     .addComponent(jBtnInserir)
@@ -184,6 +188,8 @@ public class GuiTurma extends javax.swing.JFrame {
                     .addComponent(jBtnSair))
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("Cadastrar Turma");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,13 +243,13 @@ public class GuiTurma extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCbBxPeriodo;
     private javax.swing.JFormattedTextField jFrmtdTxtFDataInicio;
     private javax.swing.JFormattedTextField jFrmtdTxtFDataTermino;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLblCurso;
+    private javax.swing.JLabel jLblDataInicio;
+    private javax.swing.JLabel jLblDataTermino;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblPeriodo;
+    private javax.swing.JLabel jLblQtdeVagas;
+    private javax.swing.JLabel jLblSiglaTurma;
     private javax.swing.JTextField jTxtFNome;
     private javax.swing.JTextField jTxtFQtdeVagas;
     private javax.swing.JTextField jTxtFSiglaTur;

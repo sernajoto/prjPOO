@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
 
 /**
  *
- * @author guilh
+ * @author Guilherme Sernajoto
+ * @author Bárbara Sajo
  */
 public class GuiAluno extends javax.swing.JFrame {
 
     /**
-     * Creates new form GuiAluno
+     * Creates new form GuiCurso
      */
     public GuiAluno() {
         initComponents();
@@ -32,40 +28,44 @@ public class GuiAluno extends javax.swing.JFrame {
         jBtnConsultar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
         jBtnSair = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLblCPF = new javax.swing.JLabel();
         jFrmtdTxtFCPF = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
         jTxtFNome = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLblSexo = new javax.swing.JLabel();
         jCbBxSexo = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        jLblEstadoCivil = new javax.swing.JLabel();
         jCbBxEstadoCivil = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
+        jLblEscolaridade = new javax.swing.JLabel();
         jCbBxEscolaridade = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        jLblEndereco = new javax.swing.JLabel();
         jTxtFBairro = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jLblBairro = new javax.swing.JLabel();
         jTxtFEnder = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jLblCidade = new javax.swing.JLabel();
         jTxtFCidade = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLblRG = new javax.swing.JLabel();
+        jLblEmail = new javax.swing.JLabel();
         jTxtFEmail = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        jLblNoEndereco = new javax.swing.JLabel();
         jTxtFNum = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLblCEP = new javax.swing.JLabel();
+        jLblEstado = new javax.swing.JLabel();
         jCbBxEstado = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLblTelRes = new javax.swing.JLabel();
+        jLblCelular = new javax.swing.JLabel();
         jFrmtdTxtFCEP = new javax.swing.JFormattedTextField();
         jFrmtdTxtFTelRes = new javax.swing.JFormattedTextField();
         jFrmtdTxtFCel = new javax.swing.JFormattedTextField();
         jFrmtdTxtFRG = new javax.swing.JFormattedTextField();
-        jLabel16 = new javax.swing.JLabel();
+        jLblDataNascto = new javax.swing.JLabel();
         jFrmtdTxtFDataNascto = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar Aluno");
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
 
         jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         jBtnInserir.setText("Inserir");
@@ -90,65 +90,64 @@ public class GuiAluno extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("CPF");
+        jLblCPF.setText("CPF");
 
         try {
             jFrmtdTxtFCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFrmtdTxtFCPF.setText("   .   .   -  ");
 
-        jLabel2.setText("Nome");
+        jLblNome.setText("Nome");
 
         jTxtFNome.setEnabled(false);
 
-        jLabel3.setText("Sexo");
+        jLblSexo.setText("Sexo");
 
         jCbBxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         jCbBxSexo.setEnabled(false);
 
-        jLabel4.setText("Estado Civil");
+        jLblEstadoCivil.setText("Estado Civil");
 
         jCbBxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casado", "Solteiro" }));
         jCbBxEstadoCivil.setEnabled(false);
 
-        jLabel6.setText("Escolaridade");
+        jLblEscolaridade.setText("Escolaridade");
 
         jCbBxEscolaridade.setEnabled(false);
 
-        jLabel5.setText("Endereço");
+        jLblEndereco.setText("Endereço");
 
         jTxtFBairro.setEnabled(false);
 
-        jLabel7.setText("Bairro");
+        jLblBairro.setText("Bairro");
 
         jTxtFEnder.setEnabled(false);
 
-        jLabel8.setText("Cidade");
+        jLblCidade.setText("Cidade");
 
         jTxtFCidade.setEnabled(false);
 
-        jLabel9.setText("RG");
+        jLblRG.setText("RG");
 
-        jLabel10.setText("Email");
+        jLblEmail.setText("Email");
 
         jTxtFEmail.setEnabled(false);
 
-        jLabel11.setText("Nº");
+        jLblNoEndereco.setText("Nº");
 
         jTxtFNum.setEnabled(false);
 
-        jLabel12.setText("CEP");
+        jLblCEP.setText("CEP");
 
-        jLabel13.setText("Estado");
+        jLblEstado.setText("Estado");
 
         jCbBxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         jCbBxEstado.setEnabled(false);
 
-        jLabel14.setText("Tel. Res");
+        jLblTelRes.setText("Tel. Res");
 
-        jLabel15.setText("Celular");
+        jLblCelular.setText("Celular");
 
         try {
             jFrmtdTxtFCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -178,7 +177,7 @@ public class GuiAluno extends javax.swing.JFrame {
         }
         jFrmtdTxtFRG.setEnabled(false);
 
-        jLabel16.setText("Data Nascto.");
+        jLblDataNascto.setText("Data Nascto.");
 
         try {
             jFrmtdTxtFDataNascto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -186,11 +185,6 @@ public class GuiAluno extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFrmtdTxtFDataNascto.setEnabled(false);
-        jFrmtdTxtFDataNascto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFDataNasctoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,29 +195,27 @@ public class GuiAluno extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblCPF, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblSexo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblBairro, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblCidade, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblRG, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLblEmail, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTxtFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel13))
+                                .addComponent(jLblEstado))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(15, 15, 15)
-                                        .addComponent(jLabel16))
+                                        .addComponent(jLblDataNascto))
                                     .addComponent(jTxtFEnder, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTxtFBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -232,11 +224,11 @@ public class GuiAluno extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jCbBxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(jLabel4)
+                                .addComponent(jLblEstadoCivil)
                                 .addGap(18, 18, 18)
                                 .addComponent(jCbBxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
+                                .addComponent(jLblEscolaridade)
                                 .addGap(18, 18, 18)
                                 .addComponent(jCbBxEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -245,13 +237,16 @@ public class GuiAluno extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(383, 383, 383)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel11)
-                                                .addComponent(jLabel12))
+                                                .addComponent(jLblNoEndereco)
+                                                .addComponent(jLblCEP))
                                             .addGap(24, 24, 24))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel15)
-                                                .addComponent(jLabel14))
+                                                .addComponent(jLblCelular)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(49, 49, 49)
+                                                    .addComponent(jLblTelRes)))
                                             .addGap(18, 18, 18)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jFrmtdTxtFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,51 +272,51 @@ public class GuiAluno extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLblCPF)
                     .addComponent(jFrmtdTxtFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLblNome)
                     .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
+                    .addComponent(jLblDataNascto)
                     .addComponent(jFrmtdTxtFDataNascto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLblSexo)
                     .addComponent(jCbBxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLblEstadoCivil)
                     .addComponent(jCbBxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
+                    .addComponent(jLblEscolaridade)
                     .addComponent(jCbBxEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(jLblEndereco)
                     .addComponent(jTxtFEnder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
+                    .addComponent(jLblNoEndereco)
                     .addComponent(jTxtFNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel12)
+                    .addComponent(jLblBairro)
+                    .addComponent(jLblCEP)
                     .addComponent(jFrmtdTxtFCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtFBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(jLblCidade)
                     .addComponent(jTxtFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
+                    .addComponent(jLblEstado)
                     .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
+                    .addComponent(jLblTelRes)
                     .addComponent(jFrmtdTxtFTelRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel15)
+                    .addComponent(jLblRG)
+                    .addComponent(jLblCelular)
                     .addComponent(jFrmtdTxtFCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFrmtdTxtFRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                    .addComponent(jLblEmail)
                     .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,8 +325,10 @@ public class GuiAluno extends javax.swing.JFrame {
                     .addComponent(jBtnAlterar)
                     .addComponent(jBtnExcluir)
                     .addComponent(jBtnSair))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("Cadastar Aluno");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -339,10 +336,6 @@ public class GuiAluno extends javax.swing.JFrame {
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
-
-    private void jFrmtdTxtFDataNasctoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFDataNasctoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFDataNasctoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,22 +388,22 @@ public class GuiAluno extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFrmtdTxtFDataNascto;
     private javax.swing.JFormattedTextField jFrmtdTxtFRG;
     private javax.swing.JFormattedTextField jFrmtdTxtFTelRes;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLblBairro;
+    private javax.swing.JLabel jLblCEP;
+    private javax.swing.JLabel jLblCPF;
+    private javax.swing.JLabel jLblCelular;
+    private javax.swing.JLabel jLblCidade;
+    private javax.swing.JLabel jLblDataNascto;
+    private javax.swing.JLabel jLblEmail;
+    private javax.swing.JLabel jLblEndereco;
+    private javax.swing.JLabel jLblEscolaridade;
+    private javax.swing.JLabel jLblEstado;
+    private javax.swing.JLabel jLblEstadoCivil;
+    private javax.swing.JLabel jLblNoEndereco;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblRG;
+    private javax.swing.JLabel jLblSexo;
+    private javax.swing.JLabel jLblTelRes;
     private javax.swing.JTextField jTxtFBairro;
     private javax.swing.JTextField jTxtFCidade;
     private javax.swing.JTextField jTxtFEmail;

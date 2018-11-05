@@ -7,7 +7,8 @@ package fatec.poo.view;
 
 /**
  *
- * @author deco_
+ * @author André Constancio
+ * @author Guilherme Sernajoto
  */
 public class GuiInstrutor extends javax.swing.JFrame {
 
@@ -67,7 +68,11 @@ public class GuiInstrutor extends javax.swing.JFrame {
         jBtnExcluir = new javax.swing.JButton();
         jBtnSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastar Instrutor");
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
 
         jLblCPF.setText("CPF");
 
@@ -108,11 +113,6 @@ public class GuiInstrutor extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFrmtdTxtFCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFCPFActionPerformed(evt);
-            }
-        });
 
         try {
             jFrmtdTxtFRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
@@ -127,11 +127,6 @@ public class GuiInstrutor extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFrmtdTxtFDataNascto.setEnabled(false);
-        jFrmtdTxtFDataNascto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFDataNasctoActionPerformed(evt);
-            }
-        });
 
         try {
             jFrmtdTxtFCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -335,7 +330,7 @@ public class GuiInstrutor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLblEmail)
                     .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnConsultar)
                     .addComponent(jBtnInserir)
@@ -345,20 +340,14 @@ public class GuiInstrutor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleName("Cadastrar Instrutor");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
-
-    private void jFrmtdTxtFDataNasctoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFDataNasctoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFDataNasctoActionPerformed
-
-    private void jFrmtdTxtFCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFCPFActionPerformed
 
     /**
      * @param args the command line arguments
