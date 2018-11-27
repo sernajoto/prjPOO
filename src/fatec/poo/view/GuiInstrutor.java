@@ -5,6 +5,12 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoInstrutor;
+import fatec.poo.model.Instrutor;
+import fatec.poo.model.Pessoa;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author André Constancio
@@ -73,6 +79,11 @@ public class GuiInstrutor extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(650, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 450));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLblCPF.setText("CPF");
 
@@ -113,6 +124,11 @@ public class GuiInstrutor extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFrmtdTxtFCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFrmtdTxtFCPFActionPerformed(evt);
+            }
+        });
 
         try {
             jFrmtdTxtFRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
@@ -150,6 +166,11 @@ public class GuiInstrutor extends javax.swing.JFrame {
         jFrmtdTxtFCel.setEnabled(false);
 
         jTxtFNome.setEnabled(false);
+        jTxtFNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtFNomeActionPerformed(evt);
+            }
+        });
 
         jTxtFEndereco.setEnabled(false);
 
@@ -176,18 +197,38 @@ public class GuiInstrutor extends javax.swing.JFrame {
 
         jBtnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         jBtnConsultar.setText("Consultar");
+        jBtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultarActionPerformed(evt);
+            }
+        });
 
         jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         jBtnInserir.setText("Inserir");
         jBtnInserir.setEnabled(false);
+        jBtnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnInserirActionPerformed(evt);
+            }
+        });
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
         jBtnAlterar.setEnabled(false);
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.setEnabled(false);
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnExcluirActionPerformed(evt);
+            }
+        });
 
         jBtnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         jBtnSair.setText("Sair");
@@ -349,6 +390,278 @@ public class GuiInstrutor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
 
+    private void jTxtFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtFNomeActionPerformed
+
+    private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
+    instrutor = null;
+       instrutor = daoInstrutor.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
+       //clearstring = jFrmtdTxtFCPF.getText();
+      // clearstring = clearstring.replaceAll("[.,-]", "");
+       if (Pessoa.validadarCPF( jFrmtdTxtFCPF.getText().replaceAll("[.,-]", "")) == true){
+       if (instrutor == null){
+          jBtnConsultar.setEnabled(false);
+          jBtnInserir.setEnabled(true);
+          jFrmtdTxtFCPF.setEnabled(false);
+          
+          jTxtFNome.setEnabled(true);
+          jCbBxSexo.setEnabled(true);
+          jTxtFEndereco.setEnabled(true);
+          jTxtFBairro.setEnabled(true);
+          jTxtFCidade.setEnabled(true);
+          jCbBxEstado.setEnabled(true);
+          jFrmtdTxtFRG.setEnabled(true);
+          jTxtFFormacao.setEnabled(true);
+          jTxtFEmail.setEnabled(true);
+          jFrmtdTxtFDataNascto.setEnabled(true);
+          jCbBxEstadoCiv.setEnabled(true);
+          jTxtFNoEndereco.setEnabled(true);
+          jFrmtdTxtFCEP.setEnabled(true);
+          jFrmtdTxtFTelRes.setEnabled(true);
+          jFrmtdTxtFCel.setEnabled(true);
+          jTxtFAreaAtuac.setEnabled(true);
+          jTxtFNome.requestFocus();
+       }
+       else{
+       jTxtFNome.setText(instrutor.getNome());
+       jCbBxSexo.setSelectedItem(instrutor.getSexo());
+       jTxtFEndereco.setText(instrutor.getEndereco());
+       jTxtFBairro.setText(instrutor.getBairro());
+       jTxtFCidade.setText(instrutor.getCidade());
+       jCbBxEstado.setSelectedItem(instrutor.getEstado());
+       jFrmtdTxtFRG.setText(instrutor.getRg());
+       jTxtFFormacao.setText(instrutor.getFormacao());
+       jTxtFEmail.setText(instrutor.getEmail());
+       jFrmtdTxtFDataNascto.setText(instrutor.getDataNasc());
+       jCbBxEstadoCiv.setSelectedItem(instrutor.getEstadoCivil());
+       jTxtFNoEndereco.setText(String.valueOf(instrutor.getNumero()));
+       jFrmtdTxtFCEP.setText(String.valueOf(instrutor.getCep()));
+       jFrmtdTxtFTelRes.setText(String.valueOf(instrutor.getTelefone()));
+       jFrmtdTxtFCel.setText(String.valueOf(instrutor.getCelular()));
+       jTxtFAreaAtuac.setText(instrutor.getAreaAtuacao());
+              
+       jBtnConsultar.setEnabled(false);
+       jBtnAlterar.setEnabled(true);
+       jBtnExcluir.setEnabled(true);
+           
+            jTxtFNome.setEnabled(true);
+          jCbBxSexo.setEnabled(true);
+          jTxtFEndereco.setEnabled(true);
+          jCbBxEstado.setEnabled(true);
+          jTxtFBairro.setEnabled(true);
+          jTxtFCidade.setEnabled(true);
+          jFrmtdTxtFRG.setEnabled(true);
+          jTxtFFormacao.setEnabled(true);
+          jTxtFEmail.setEnabled(true);
+          jFrmtdTxtFDataNascto.setEnabled(true);
+          jCbBxEstadoCiv.setEnabled(true);
+          jTxtFNoEndereco.setEnabled(true);
+          jFrmtdTxtFCEP.setEnabled(true);
+          jFrmtdTxtFTelRes.setEnabled(true);
+          jFrmtdTxtFCel.setEnabled(true);
+          jTxtFAreaAtuac.setEnabled(true);
+          jTxtFNome.requestFocus();
+          }         
+    }//GEN-LAST:event_jBtnConsultarActionPerformed
+       else{
+           JOptionPane.showMessageDialog(null,"O CPF informado e invalido");
+       }
+   }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+           conexao = new Conexao("POO", "contaORACLE$2");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        daoInstrutor= new DaoInstrutor(conexao.conectar());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jFrmtdTxtFCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFrmtdTxtFCPFActionPerformed
+
+    private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
+        instrutor = new Instrutor((jTxtFNome.getText()), jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
+        
+        instrutor.setSexo(jCbBxSexo.getSelectedItem().toString());
+        instrutor.setEstado(jCbBxEstado.getSelectedItem().toString());
+        instrutor.setEstadoCivil(jCbBxEstadoCiv.getSelectedItem().toString());
+        
+        instrutor.setRg(jFrmtdTxtFRG.getText().replaceAll("[.,-]", ""));
+        instrutor.setDataNasc(jFrmtdTxtFDataNascto.getText());
+        instrutor.setTelefone(jFrmtdTxtFTelRes.getText().replaceAll("[(,),-]", ""));
+        instrutor.setCelular(jFrmtdTxtFCel.getText().replaceAll("[(,),-]", ""));
+        instrutor.setCep(jFrmtdTxtFCEP.getText().replaceAll("-", ""));
+        
+        instrutor.setEndereco(jTxtFEndereco.getText());
+        instrutor.setBairro(jTxtFBairro.getText());
+        instrutor.setCidade(jTxtFCidade.getText());
+         instrutor.setNumero(Integer.parseInt(jTxtFNoEndereco.getText()));
+        instrutor.setFormacao(jTxtFFormacao.getText());
+        instrutor.setAreaAtuacao(jTxtFAreaAtuac.getText());
+        instrutor.setEmail(jTxtFEmail.getText());
+        
+        daoInstrutor.inserir(instrutor);
+        
+         jBtnConsultar.setEnabled(true);
+         jBtnInserir.setEnabled(false);
+         jBtnAlterar.setEnabled(false);
+         jBtnExcluir.setEnabled(false);
+        
+       jFrmtdTxtFCPF.setText("");
+        jTxtFNome.setText("");
+       jCbBxSexo.setSelectedItem("M");
+       jTxtFEndereco.setText("");
+       jTxtFBairro.setText("");
+       jTxtFCidade.setText("");
+       jCbBxEstado.setSelectedItem("AC");
+       jFrmtdTxtFRG.setText("");
+       jTxtFFormacao.setText("");
+       jTxtFEmail.setText("");
+       jFrmtdTxtFDataNascto.setText("");
+       jCbBxEstadoCiv.setSelectedItem("Casado");
+       jTxtFNoEndereco.setText("");
+       jFrmtdTxtFCEP.setText("");
+       jFrmtdTxtFTelRes.setText("");
+       jFrmtdTxtFCel.setText("");
+       jTxtFAreaAtuac.setText("");
+       
+        jFrmtdTxtFCPF.setEnabled(true);
+        jTxtFNome.setEnabled(false);
+       jCbBxSexo.setEnabled(false);
+       jTxtFEndereco.setEnabled(false);
+       jTxtFBairro.setEnabled(false);
+       jTxtFCidade.setEnabled(false);
+       jCbBxEstado.setEnabled(false);
+       jFrmtdTxtFRG.setEnabled(false);
+       jTxtFFormacao.setEnabled(false);
+       jTxtFEmail.setEnabled(false);
+       jFrmtdTxtFDataNascto.setEnabled(false);
+       jCbBxEstadoCiv.setEnabled(false);
+       jTxtFNoEndereco.setEnabled(false);
+       jFrmtdTxtFCEP.setEnabled(false);
+       jFrmtdTxtFTelRes.setEnabled(false);
+       jFrmtdTxtFCel.setEnabled(false);
+       jTxtFAreaAtuac.setEnabled(false);
+       
+       jTxtFNome.requestFocus();
+    }//GEN-LAST:event_jBtnInserirActionPerformed
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+       
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
+            
+            instrutor.setSexo(jCbBxSexo.getSelectedItem().toString());
+            instrutor.setEstado(jCbBxEstado.getSelectedItem().toString());
+            instrutor.setEstadoCivil(jCbBxEstadoCiv.getSelectedItem().toString());
+            
+              instrutor.setRg(jFrmtdTxtFRG.getText().replaceAll("[.,-]", ""));
+        instrutor.setDataNasc(jFrmtdTxtFDataNascto.getText());
+        instrutor.setTelefone(jFrmtdTxtFTelRes.getText().replaceAll("[(,),-]", ""));
+        instrutor.setCelular(jFrmtdTxtFCel.getText().replaceAll("[(,),-]", ""));
+        instrutor.setCep(jFrmtdTxtFCEP.getText().replaceAll("-", ""));
+            
+            instrutor.setEndereco(jTxtFEndereco.getText());
+            instrutor.setBairro(jTxtFBairro.getText());
+            instrutor.setCidade(jTxtFCidade.getText());
+            instrutor.setNumero(Integer.parseInt(jTxtFNoEndereco.getText()));
+            instrutor.setFormacao(jTxtFFormacao.getText());
+            instrutor.setAreaAtuacao(jTxtFAreaAtuac.getText());
+            instrutor.setEmail(jTxtFEmail.getText());
+            
+           daoInstrutor.alterar(instrutor);
+        }
+        
+            jBtnConsultar.setEnabled(true);
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);        
+        
+           jFrmtdTxtFCPF.setText("");
+           jTxtFNome.setText("");
+           jCbBxSexo.setSelectedItem("M");
+           jTxtFEndereco.setText("");
+           jTxtFBairro.setText("");
+           jTxtFCidade.setText("");
+           jCbBxEstado.setSelectedItem("AC");
+           jFrmtdTxtFRG.setText("");
+           jTxtFFormacao.setText("");
+           jTxtFEmail.setText("");
+           jFrmtdTxtFDataNascto.setText("");
+           jCbBxEstadoCiv.setSelectedItem("Casado");
+           jTxtFNoEndereco.setText("");
+           jFrmtdTxtFCEP.setText("");
+           jFrmtdTxtFTelRes.setText("");
+           jFrmtdTxtFCel.setText("");
+           jTxtFAreaAtuac.setText("");
+           
+           jFrmtdTxtFCPF.setEnabled(true);
+           jTxtFNome.setEnabled(false);
+           jCbBxSexo.setEnabled(false);
+           jTxtFEndereco.setEnabled(false);
+           jTxtFBairro.setEnabled(false);
+           jTxtFCidade.setEnabled(false);
+           jCbBxEstado.setEnabled(false);
+           jFrmtdTxtFRG.setEnabled(false);
+           jTxtFFormacao.setEnabled(false);
+           jTxtFEmail.setEnabled(false);
+           jFrmtdTxtFDataNascto.setEnabled(false);
+           jCbBxEstadoCiv.setEnabled(false);
+           jTxtFNoEndereco.setEnabled(false);
+           jFrmtdTxtFCEP.setEnabled(false);
+           jFrmtdTxtFTelRes.setEnabled(false);
+           jFrmtdTxtFCel.setEnabled(false);
+           jTxtFAreaAtuac.setEnabled(false);
+           
+           jTxtFNome.requestFocus();
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
+
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+ if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
+            daoInstrutor.excluir(instrutor);
+        
+           jFrmtdTxtFCPF.setText("");
+            jTxtFNome.setText("");
+           jCbBxSexo.setSelectedItem("M");
+           jTxtFEndereco.setText("");
+           jTxtFBairro.setText("");
+           jTxtFCidade.setText("");
+           jCbBxEstado.setSelectedItem("AC");
+           jFrmtdTxtFRG.setText("");
+           jTxtFFormacao.setText("");
+           jTxtFEmail.setText("");
+           jFrmtdTxtFDataNascto.setText("");
+           jCbBxEstadoCiv.setSelectedItem("Casado");
+           jTxtFNoEndereco.setText("");
+           jFrmtdTxtFCEP.setText("");
+           jFrmtdTxtFTelRes.setText("");
+           jFrmtdTxtFCel.setText("");
+           jTxtFAreaAtuac.setText("");
+           
+           jBtnConsultar.setEnabled(true);
+           jBtnInserir.setEnabled(false);
+           jBtnAlterar.setEnabled(false);
+           jBtnExcluir.setEnabled(false);
+           
+           jFrmtdTxtFCPF.setEnabled(true);
+           jTxtFNome.setEnabled(false);
+           jCbBxSexo.setEnabled(false);
+           jTxtFEndereco.setEnabled(false);
+           jTxtFBairro.setEnabled(false);
+           jTxtFCidade.setEnabled(false);
+           jCbBxEstado.setEnabled(false);
+           jFrmtdTxtFRG.setEnabled(false);
+           jTxtFFormacao.setEnabled(false);
+           jTxtFEmail.setEnabled(false);
+           jFrmtdTxtFDataNascto.setEnabled(false);
+           jCbBxEstadoCiv.setEnabled(false);
+           jTxtFNoEndereco.setEnabled(false);
+           jFrmtdTxtFCEP.setEnabled(false);
+           jFrmtdTxtFTelRes.setEnabled(false);
+           jFrmtdTxtFCel.setEnabled(false);
+           jTxtFAreaAtuac.setEnabled(false);
+        }        
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
+  
     /**
      * @param args the command line arguments
      */
@@ -425,4 +738,8 @@ public class GuiInstrutor extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFNoEndereco;
     private javax.swing.JTextField jTxtFNome;
     // End of variables declaration//GEN-END:variables
+private DaoInstrutor daoInstrutor = null;
+private Instrutor instrutor = null;
+private Conexao conexao = null;
+private String clearstring = "";
 }
