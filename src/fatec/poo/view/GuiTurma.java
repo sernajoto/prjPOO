@@ -1,13 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
+
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoCurso;
+import fatec.poo.control.DaoTurma;
+import fatec.poo.model.Turma;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author guilh
+ * @author Guilherme Sernajoto
+ * @author Bárbara Sajo
  */
 public class GuiTurma extends javax.swing.JFrame {
 
@@ -27,18 +30,18 @@ public class GuiTurma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jLblSiglaTurma = new javax.swing.JLabel();
         jTxtFSiglaTur = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTxtFNome = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
+        jTxtFDesc = new javax.swing.JTextField();
+        jLblQtdeVagas = new javax.swing.JLabel();
+        jLblCurso = new javax.swing.JLabel();
         jCbBxCurso = new javax.swing.JComboBox<>();
         jTxtFQtdeVagas = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLblPeriodo = new javax.swing.JLabel();
         jCbBxPeriodo = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLblDataInicio = new javax.swing.JLabel();
+        jLblDataTermino = new javax.swing.JLabel();
         jFrmtdTxtFDataInicio = new javax.swing.JFormattedTextField();
         jFrmtdTxtFDataTermino = new javax.swing.JFormattedTextField();
         jBtnInserir = new javax.swing.JButton();
@@ -47,51 +50,88 @@ public class GuiTurma extends javax.swing.JFrame {
         jBtnExcluir = new javax.swing.JButton();
         jBtnSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(600, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastar Turma");
+        setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jLabel2.setText("Sigla da Turma");
+        jLblSiglaTurma.setText("Sigla da Turma");
 
-        jTxtFSiglaTur.setEnabled(false);
+        jLblNome.setText("Descrição");
 
-        jLabel3.setText("Nome");
+        jTxtFDesc.setEnabled(false);
 
-        jTxtFNome.setEnabled(false);
+        jLblQtdeVagas.setText("Qtde Vagas");
 
-        jLabel4.setText("Qtde Vagas");
+        jLblCurso.setText("Curso");
 
-        jLabel1.setText("Curso");
+        jCbBxCurso.setEnabled(false);
 
         jTxtFQtdeVagas.setEnabled(false);
 
-        jLabel5.setText("Período");
+        jLblPeriodo.setText("Período");
 
+        jCbBxPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde", "Noite", "Integral" }));
         jCbBxPeriodo.setEnabled(false);
 
-        jLabel6.setText("Data início");
+        jLblDataInicio.setText("Data início");
 
-        jLabel7.setText("Data término");
+        jLblDataTermino.setText("Data término");
 
-        jFrmtdTxtFDataInicio.setText("  /  /    ");
+        try {
+            jFrmtdTxtFDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFrmtdTxtFDataInicio.setEnabled(false);
 
-        jFrmtdTxtFDataTermino.setText("  /  /    ");
+        try {
+            jFrmtdTxtFDataTermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFrmtdTxtFDataTermino.setEnabled(false);
 
         jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         jBtnInserir.setText("Inserir");
         jBtnInserir.setEnabled(false);
+        jBtnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnInserirActionPerformed(evt);
+            }
+        });
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
         jBtnAlterar.setEnabled(false);
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         jBtnConsultar.setText("Consultar");
+        jBtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.setEnabled(false);
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnExcluirActionPerformed(evt);
+            }
+        });
 
         jBtnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         jBtnSair.setText("Sair");
@@ -120,28 +160,28 @@ public class GuiTurma extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
+                    .addComponent(jLblDataInicio)
+                    .addComponent(jLblQtdeVagas)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(jLblSiglaTurma)
+                        .addComponent(jLblCurso, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jCbBxCurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTxtFSiglaTur)
-                        .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxtFDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jFrmtdTxtFDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7))
+                                .addComponent(jLblDataTermino))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jTxtFQtdeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(102, 102, 102)
-                                .addComponent(jLabel5)))
+                                .addComponent(jLblPeriodo)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCbBxPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,31 +191,31 @@ public class GuiTurma extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLblCurso)
                     .addComponent(jCbBxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLblSiglaTurma)
                     .addComponent(jTxtFSiglaTur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLblNome)
+                    .addComponent(jTxtFDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLblQtdeVagas)
                     .addComponent(jTxtFQtdeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
+                    .addComponent(jLblPeriodo)
                     .addComponent(jCbBxPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
+                    .addComponent(jLblDataInicio)
+                    .addComponent(jLblDataTermino)
                     .addComponent(jFrmtdTxtFDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFrmtdTxtFDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 70, Short.MAX_VALUE)
+                .addGap(18, 74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnConsultar)
                     .addComponent(jBtnInserir)
@@ -185,12 +225,153 @@ public class GuiTurma extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleName("Cadastrar Turma");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
+
+    private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
+        turma = null;
+        turma = daoTurma.consultar(jTxtFSiglaTur.getText());
+
+        if (turma == null) {
+            jBtnInserir.setEnabled(true);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+        } else {
+            jCbBxCurso.setSelectedItem(turma.getCurso().getSigla());
+            jTxtFDesc.setText(turma.getDescricao());
+            jTxtFQtdeVagas.setText(Integer.toString(turma.getQtdeVagas()));
+            jCbBxPeriodo.setSelectedItem(turma.getPeriodo());
+            jFrmtdTxtFDataInicio.setText(turma.getDataInicio());
+            jFrmtdTxtFDataTermino.setText(turma.getDataTermino());
+
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(true);
+            jBtnExcluir.setEnabled(true);
+        }
+            jTxtFSiglaTur.setEnabled(false);
+            jCbBxCurso.setEnabled(true);
+            jTxtFDesc.setEnabled(true);
+            jTxtFDesc.requestFocus();
+            jTxtFQtdeVagas.setEnabled(true);
+            jCbBxPeriodo.setEnabled(true);
+            jFrmtdTxtFDataInicio.setEnabled(true);
+            jFrmtdTxtFDataTermino.setEnabled(true);
+            
+            jBtnConsultar.setEnabled(false);
+    }//GEN-LAST:event_jBtnConsultarActionPerformed
+
+    private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
+        daoCurso = new DaoCurso(conexao.conectar());
+        turma = new Turma(jTxtFSiglaTur.getText(), jTxtFDesc.getText());
+        turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
+        turma.setQtdeVagas(Integer.parseInt(jTxtFQtdeVagas.getText()));
+        turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
+        turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
+        turma.setDataTermino(jFrmtdTxtFDataTermino.getText());
+
+        daoTurma.inserir(turma);
+        jCbBxCurso.setSelectedIndex(0);
+        jTxtFSiglaTur.setText("");
+        jTxtFDesc.setText("");
+        jTxtFQtdeVagas.setText("");
+        jCbBxPeriodo.setSelectedIndex(0);
+        jFrmtdTxtFDataInicio.setText("");
+        jFrmtdTxtFDataTermino.setText("");
+
+        jTxtFSiglaTur.setEnabled(true);
+        jCbBxCurso.setEnabled(false);
+        jTxtFDesc.setEnabled(false);
+        jTxtFQtdeVagas.setEnabled(false);
+        jCbBxPeriodo.setEnabled(false);
+        jFrmtdTxtFDataInicio.setEnabled(false);
+        jFrmtdTxtFDataTermino.setEnabled(false);
+        jTxtFSiglaTur.requestFocus();
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+    }//GEN-LAST:event_jBtnInserirActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conexao = new Conexao("PrjFinal_POO", "150297");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        daoTurma = new DaoTurma(conexao.conectar());
+        daoCurso = new DaoCurso(conexao.conectar());
+        ArrayList<String> siglas = daoCurso.listarSiglas();
+
+        for (String i : siglas) {
+            jCbBxCurso.addItem(i);
+        }
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            daoCurso = new DaoCurso(conexao.conectar());
+            turma.setDescricao(jTxtFDesc.getText());
+            turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
+            turma.setQtdeVagas(Integer.parseInt(jTxtFQtdeVagas.getText()));
+            turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
+            turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
+            turma.setDataInicio(jFrmtdTxtFDataTermino.getText());
+
+            daoTurma.alterar(turma);
+        }
+        jCbBxCurso.setSelectedIndex(0);
+        jTxtFSiglaTur.setText("");
+        jTxtFDesc.setText("");
+        jTxtFQtdeVagas.setText("");
+        jCbBxPeriodo.setSelectedIndex(0);
+        jFrmtdTxtFDataInicio.setText("");
+        jFrmtdTxtFDataTermino.setText("");
+
+        jTxtFSiglaTur.setEnabled(true);
+        jCbBxCurso.setEnabled(false);
+        jTxtFDesc.setEnabled(false);
+        jTxtFQtdeVagas.setEnabled(false);
+        jCbBxPeriodo.setEnabled(false);
+        jFrmtdTxtFDataInicio.setEnabled(false);
+        jFrmtdTxtFDataTermino.setEnabled(false);
+        jTxtFSiglaTur.requestFocus();
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+        jBtnAlterar.setEnabled(false);
+        jBtnExcluir.setEnabled(false);
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
+
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Exclsão?") == 0) {
+            daoTurma.excluir(turma);
+            jCbBxCurso.setSelectedIndex(0);
+            jTxtFSiglaTur.setText("");
+            jTxtFDesc.setText("");
+            jTxtFQtdeVagas.setText("");
+            jCbBxPeriodo.setSelectedIndex(0);
+            jFrmtdTxtFDataInicio.setText("");
+            jFrmtdTxtFDataTermino.setText("");
+
+            jTxtFSiglaTur.setEnabled(true);
+            jCbBxCurso.setEnabled(false);
+            jTxtFDesc.setEnabled(false);
+            jTxtFQtdeVagas.setEnabled(false);
+            jCbBxPeriodo.setEnabled(false);
+            jFrmtdTxtFDataInicio.setEnabled(false);
+            jFrmtdTxtFDataTermino.setEnabled(false);
+            jTxtFSiglaTur.requestFocus();
+
+            jBtnConsultar.setEnabled(true);
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+        }
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,15 +418,19 @@ public class GuiTurma extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCbBxPeriodo;
     private javax.swing.JFormattedTextField jFrmtdTxtFDataInicio;
     private javax.swing.JFormattedTextField jFrmtdTxtFDataTermino;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTxtFNome;
+    private javax.swing.JLabel jLblCurso;
+    private javax.swing.JLabel jLblDataInicio;
+    private javax.swing.JLabel jLblDataTermino;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblPeriodo;
+    private javax.swing.JLabel jLblQtdeVagas;
+    private javax.swing.JLabel jLblSiglaTurma;
+    private javax.swing.JTextField jTxtFDesc;
     private javax.swing.JTextField jTxtFQtdeVagas;
     private javax.swing.JTextField jTxtFSiglaTur;
     // End of variables declaration//GEN-END:variables
+    private DaoTurma daoTurma = null;
+    private Turma turma = null;
+    private Conexao conexao = null;
+    private DaoCurso daoCurso = null;
 }

@@ -2,12 +2,26 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Cadastar Instrutor"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[650, 450]"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[650, 450]"/>
+    </Property>
   </Properties>
+  <AccessibilityProperties>
+    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Cadastrar Instrutor"/>
+  </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -24,93 +38,99 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jBtnConsultar" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Component id="jBtnInserir" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Component id="jBtnAlterar" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Component id="jBtnExcluir" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Component id="jBtnSair" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jBtnConsultar" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jBtnInserir" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jBtnAlterar" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jBtnExcluir" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jBtnSair" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="jLblEmail" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLblCPF" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblNome" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblSexo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblBairro" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblCidade" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblRG" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jLblEmail" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLblCPF" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblNome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblSexo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblBairro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblCidade" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblRG" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jLblFormacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTxtFEmail" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                                  <Component id="jTxtFFormacao" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="jFrmtdTxtFRG" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTxtFCidade" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLblEstado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jTxtFBairro" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="jTxtFEndereco" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="jCbBxSexo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTxtFNome" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="jFrmtdTxtFCPF" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jLblFormacao" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTxtFEmail" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="jTxtFFormacao" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jFrmtdTxtFRG" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTxtFCidade" min="-2" pref="130" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLblEstado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLblDataNascto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblEstadoCivil" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblNoEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblCEP" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLblCel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jCbBxEstado" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jLblTelRes" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jCbBxEstadoCiv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jFrmtdTxtFDataNascto" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jFrmtdTxtFTelRes" alignment="0" pref="117" max="32767" attributes="0"/>
+                                          <Component id="jFrmtdTxtFCEP" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTxtFNoEndereco" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <Component id="jFrmtdTxtFCel" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                                      <Component id="jLblAreaAtuac" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jTxtFAreaAtuac" min="-2" pref="221" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTxtFBairro" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="jTxtFEndereco" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="jCbBxSexo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxtFNome" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="jFrmtdTxtFCPF" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
-                      <Component id="jLblAreaAtuac" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
-                      <Component id="jTxtFAreaAtuac" min="-2" pref="221" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLblDataNascto" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLblEstadoCivil" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLblNoEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLblCEP" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLblCel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jCbBxEstado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLblTelRes" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jCbBxEstadoCiv" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFrmtdTxtFDataNascto" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jFrmtdTxtFTelRes" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jFrmtdTxtFCEP" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTxtFNoEndereco" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="jFrmtdTxtFCel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -178,7 +198,7 @@
                   <Component id="jLblEmail" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="jTxtFEmail" alignment="2" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="111" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jBtnConsultar" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnInserir" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -283,14 +303,11 @@
           <Format format="###.###.###-##" subtype="-1" type="5"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFrmtdTxtFCPFActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFrmtdTxtFRG">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="##.###.###-#" subtype="-1" type="5"/>
+          <Format format="##.###.###-A" subtype="-1" type="5"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -302,9 +319,6 @@
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFrmtdTxtFDataNasctoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFrmtdTxtFCEP">
       <Properties>
@@ -325,7 +339,7 @@
     <Component class="javax.swing.JFormattedTextField" name="jFrmtdTxtFCel">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="(##)####-####" subtype="-1" type="5"/>
+          <Format format="(##)####-#####" subtype="-1" type="5"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -444,6 +458,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnConsultarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnInserir">
       <Properties>
@@ -453,6 +470,9 @@
         <Property name="text" type="java.lang.String" value="Inserir"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnInserirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnAlterar">
       <Properties>
@@ -462,6 +482,9 @@
         <Property name="text" type="java.lang.String" value="Alterar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAlterarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnExcluir">
       <Properties>
@@ -471,6 +494,9 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnExcluirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnSair">
       <Properties>
