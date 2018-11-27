@@ -383,8 +383,7 @@ public class GuiInstrutor extends javax.swing.JFrame {
 
         if (Pessoa.validadarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
             instrutor = daoInstrutor.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
-            if (instrutor == null) {
-                jBtnConsultar.setEnabled(false);
+            if (instrutor == null) {               
                 jBtnExcluir.setEnabled(false);
                 jBtnInserir.setEnabled(true);
             } else {
@@ -405,7 +404,6 @@ public class GuiInstrutor extends javax.swing.JFrame {
                 jFrmtdTxtFCel.setText(String.valueOf(instrutor.getCelular()));
                 jTxtFAreaAtuac.setText(instrutor.getAreaAtuacao());
 
-                jBtnConsultar.setEnabled(false);
                 jBtnAlterar.setEnabled(true);
                 jBtnExcluir.setEnabled(true);
             }
@@ -427,6 +425,8 @@ public class GuiInstrutor extends javax.swing.JFrame {
             jFrmtdTxtFCel.setEnabled(true);
             jTxtFAreaAtuac.setEnabled(true);
             jTxtFNome.requestFocus();
+            
+            jBtnConsultar.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(null, "CPF Inválido");
         }
@@ -697,7 +697,7 @@ public class GuiInstrutor extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFNoEndereco;
     private javax.swing.JTextField jTxtFNome;
     // End of variables declaration//GEN-END:variables
-private DaoInstrutor daoInstrutor = null;
+    private DaoInstrutor daoInstrutor = null;
     private Instrutor instrutor = null;
     private Conexao conexao = null;
 }

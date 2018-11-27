@@ -224,7 +224,6 @@ public class GuiCurso extends javax.swing.JFrame {
         curso = daoCurso.consultar(jTxtFSigla.getText());
 
         if (curso == null) {
-            jBtnConsultar.setEnabled(false);
             jBtnExcluir.setEnabled(false);
             jBtnInserir.setEnabled(true);
         } else {
@@ -235,7 +234,6 @@ public class GuiCurso extends javax.swing.JFrame {
             jFrmtdTxtFDataVig.setText(curso.getDataVigencia());
             jTxtFValHorInst.setText(String.valueOf(curso.getValorHoraInstrutor()));
 
-            jBtnConsultar.setEnabled(false);
             jBtnAlterar.setEnabled(true);
             jBtnExcluir.setEnabled(true);
         }
@@ -247,6 +245,8 @@ public class GuiCurso extends javax.swing.JFrame {
         jFrmtdTxtFDataVig.setEnabled(true);
         jTxtFValHorInst.setEnabled(true);
         jTxtFNome.requestFocus();
+        
+        jBtnConsultar.setEnabled(false);
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -406,7 +406,7 @@ public class GuiCurso extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFVal;
     private javax.swing.JTextField jTxtFValHorInst;
     // End of variables declaration//GEN-END:variables
-private DaoCurso daoCurso = null;
+    private DaoCurso daoCurso = null;
     private Curso curso = null;
     private Conexao conexao = null;
 

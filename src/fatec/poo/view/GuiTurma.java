@@ -239,16 +239,6 @@ public class GuiTurma extends javax.swing.JFrame {
         turma = daoTurma.consultar(jTxtFSiglaTur.getText());
 
         if (turma == null) {
-            jTxtFSiglaTur.setEnabled(false);
-            jCbBxCurso.setEnabled(true);
-            jTxtFDesc.setEnabled(true);
-            jTxtFDesc.requestFocus();
-            jTxtFQtdeVagas.setEnabled(true);
-            jCbBxPeriodo.setEnabled(true);
-            jFrmtdTxtFDataInicio.setEnabled(true);
-            jFrmtdTxtFDataTermino.setEnabled(true);
-
-            jBtnConsultar.setEnabled(false);
             jBtnInserir.setEnabled(true);
             jBtnAlterar.setEnabled(false);
             jBtnExcluir.setEnabled(false);
@@ -260,6 +250,10 @@ public class GuiTurma extends javax.swing.JFrame {
             jFrmtdTxtFDataInicio.setText(turma.getDataInicio());
             jFrmtdTxtFDataTermino.setText(turma.getDataTermino());
 
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(true);
+            jBtnExcluir.setEnabled(true);
+        }
             jTxtFSiglaTur.setEnabled(false);
             jCbBxCurso.setEnabled(true);
             jTxtFDesc.setEnabled(true);
@@ -268,12 +262,8 @@ public class GuiTurma extends javax.swing.JFrame {
             jCbBxPeriodo.setEnabled(true);
             jFrmtdTxtFDataInicio.setEnabled(true);
             jFrmtdTxtFDataTermino.setEnabled(true);
-
+            
             jBtnConsultar.setEnabled(false);
-            jBtnInserir.setEnabled(false);
-            jBtnAlterar.setEnabled(true);
-            jBtnExcluir.setEnabled(true);
-        }
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
     private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
