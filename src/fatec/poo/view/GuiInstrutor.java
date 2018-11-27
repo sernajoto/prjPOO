@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
 
 import fatec.poo.control.Conexao;
@@ -124,14 +119,9 @@ public class GuiInstrutor extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFrmtdTxtFCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFCPFActionPerformed(evt);
-            }
-        });
 
         try {
-            jFrmtdTxtFRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+            jFrmtdTxtFRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-A")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -159,18 +149,13 @@ public class GuiInstrutor extends javax.swing.JFrame {
         jFrmtdTxtFTelRes.setEnabled(false);
 
         try {
-            jFrmtdTxtFCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            jFrmtdTxtFCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-#####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         jFrmtdTxtFCel.setEnabled(false);
 
         jTxtFNome.setEnabled(false);
-        jTxtFNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtFNomeActionPerformed(evt);
-            }
-        });
 
         jTxtFEndereco.setEnabled(false);
 
@@ -244,77 +229,80 @@ public class GuiInstrutor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBtnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBtnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLblEmail))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLblCPF, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLblSexo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLblEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLblBairro, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLblCidade, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLblRG, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addComponent(jLblFormacao))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtFFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFrmtdTxtFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTxtFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLblEstado)
-                                .addGap(53, 53, 53))
-                            .addComponent(jTxtFBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCbBxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFrmtdTxtFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jLblAreaAtuac))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(336, 336, 336)
-                        .addComponent(jTxtFAreaAtuac, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLblDataNascto)
-                            .addComponent(jLblEstadoCivil)
-                            .addComponent(jLblNoEndereco)
-                            .addComponent(jLblCEP)
-                            .addComponent(jLblCel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLblEmail))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLblCPF, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblSexo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblBairro, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblCidade, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblRG, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(jLblFormacao))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLblTelRes)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCbBxEstadoCiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFrmtdTxtFDataNascto)
-                            .addComponent(jFrmtdTxtFTelRes)
-                            .addComponent(jFrmtdTxtFCEP)
-                            .addComponent(jTxtFNoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFrmtdTxtFCel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(33, 33, 33))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFrmtdTxtFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTxtFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLblEstado)
+                                        .addGap(165, 165, 165))
+                                    .addComponent(jTxtFBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCbBxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFrmtdTxtFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(252, 252, 252)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLblDataNascto)
+                                            .addComponent(jLblEstadoCivil)
+                                            .addComponent(jLblNoEndereco)
+                                            .addComponent(jLblCEP)
+                                            .addComponent(jLblCel)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jCbBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLblTelRes)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jCbBxEstadoCiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jFrmtdTxtFDataNascto)
+                                            .addComponent(jFrmtdTxtFTelRes, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                            .addComponent(jFrmtdTxtFCEP)
+                                            .addComponent(jTxtFNoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jFrmtdTxtFCel)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(240, 240, 240)
+                                        .addComponent(jLblAreaAtuac)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTxtFAreaAtuac, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(22, 22, 22))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,7 +359,7 @@ public class GuiInstrutor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLblEmail)
                     .addComponent(jTxtFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnConsultar)
                     .addComponent(jBtnInserir)
@@ -390,176 +378,147 @@ public class GuiInstrutor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
 
-    private void jTxtFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtFNomeActionPerformed
-
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
-    instrutor = null;
-       instrutor = daoInstrutor.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
-       //clearstring = jFrmtdTxtFCPF.getText();
-      // clearstring = clearstring.replaceAll("[.,-]", "");
-       if (Pessoa.validadarCPF( jFrmtdTxtFCPF.getText().replaceAll("[.,-]", "")) == true){
-       if (instrutor == null){
-          jBtnConsultar.setEnabled(false);
-          jBtnInserir.setEnabled(true);
-          jFrmtdTxtFCPF.setEnabled(false);
-          
-          jTxtFNome.setEnabled(true);
-          jCbBxSexo.setEnabled(true);
-          jTxtFEndereco.setEnabled(true);
-          jTxtFBairro.setEnabled(true);
-          jTxtFCidade.setEnabled(true);
-          jCbBxEstado.setEnabled(true);
-          jFrmtdTxtFRG.setEnabled(true);
-          jTxtFFormacao.setEnabled(true);
-          jTxtFEmail.setEnabled(true);
-          jFrmtdTxtFDataNascto.setEnabled(true);
-          jCbBxEstadoCiv.setEnabled(true);
-          jTxtFNoEndereco.setEnabled(true);
-          jFrmtdTxtFCEP.setEnabled(true);
-          jFrmtdTxtFTelRes.setEnabled(true);
-          jFrmtdTxtFCel.setEnabled(true);
-          jTxtFAreaAtuac.setEnabled(true);
-          jTxtFNome.requestFocus();
-       }
-       else{
-       jTxtFNome.setText(instrutor.getNome());
-       jCbBxSexo.setSelectedItem(instrutor.getSexo());
-       jTxtFEndereco.setText(instrutor.getEndereco());
-       jTxtFBairro.setText(instrutor.getBairro());
-       jTxtFCidade.setText(instrutor.getCidade());
-       jCbBxEstado.setSelectedItem(instrutor.getEstado());
-       jFrmtdTxtFRG.setText(instrutor.getRg());
-       jTxtFFormacao.setText(instrutor.getFormacao());
-       jTxtFEmail.setText(instrutor.getEmail());
-       jFrmtdTxtFDataNascto.setText(instrutor.getDataNasc());
-       jCbBxEstadoCiv.setSelectedItem(instrutor.getEstadoCivil());
-       jTxtFNoEndereco.setText(String.valueOf(instrutor.getNumero()));
-       jFrmtdTxtFCEP.setText(String.valueOf(instrutor.getCep()));
-       jFrmtdTxtFTelRes.setText(String.valueOf(instrutor.getTelefone()));
-       jFrmtdTxtFCel.setText(String.valueOf(instrutor.getCelular()));
-       jTxtFAreaAtuac.setText(instrutor.getAreaAtuacao());
-              
-       jBtnConsultar.setEnabled(false);
-       jBtnAlterar.setEnabled(true);
-       jBtnExcluir.setEnabled(true);
-           
+        instrutor = null;
+
+        if (Pessoa.validadarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
+            instrutor = daoInstrutor.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
+            if (instrutor == null) {
+                jBtnConsultar.setEnabled(false);
+                jBtnExcluir.setEnabled(false);
+                jBtnInserir.setEnabled(true);
+            } else {
+                jTxtFNome.setText(instrutor.getNome());
+                jCbBxSexo.setSelectedItem(instrutor.getSexo());
+                jTxtFEndereco.setText(instrutor.getEndereco());
+                jTxtFBairro.setText(instrutor.getBairro());
+                jTxtFCidade.setText(instrutor.getCidade());
+                jCbBxEstado.setSelectedItem(instrutor.getEstado());
+                jFrmtdTxtFRG.setText(instrutor.getRg());
+                jTxtFFormacao.setText(instrutor.getFormacao());
+                jTxtFEmail.setText(instrutor.getEmail());
+                jFrmtdTxtFDataNascto.setText(instrutor.getDataNasc());
+                jCbBxEstadoCiv.setSelectedItem(instrutor.getEstadoCivil());
+                jTxtFNoEndereco.setText(String.valueOf(instrutor.getNumero()));
+                jFrmtdTxtFCEP.setText(String.valueOf(instrutor.getCep()));
+                jFrmtdTxtFTelRes.setText(String.valueOf(instrutor.getTelefone()));
+                jFrmtdTxtFCel.setText(String.valueOf(instrutor.getCelular()));
+                jTxtFAreaAtuac.setText(instrutor.getAreaAtuacao());
+
+                jBtnConsultar.setEnabled(false);
+                jBtnAlterar.setEnabled(true);
+                jBtnExcluir.setEnabled(true);
+            }
+            jFrmtdTxtFCPF.setEnabled(false);
             jTxtFNome.setEnabled(true);
-          jCbBxSexo.setEnabled(true);
-          jTxtFEndereco.setEnabled(true);
-          jCbBxEstado.setEnabled(true);
-          jTxtFBairro.setEnabled(true);
-          jTxtFCidade.setEnabled(true);
-          jFrmtdTxtFRG.setEnabled(true);
-          jTxtFFormacao.setEnabled(true);
-          jTxtFEmail.setEnabled(true);
-          jFrmtdTxtFDataNascto.setEnabled(true);
-          jCbBxEstadoCiv.setEnabled(true);
-          jTxtFNoEndereco.setEnabled(true);
-          jFrmtdTxtFCEP.setEnabled(true);
-          jFrmtdTxtFTelRes.setEnabled(true);
-          jFrmtdTxtFCel.setEnabled(true);
-          jTxtFAreaAtuac.setEnabled(true);
-          jTxtFNome.requestFocus();
-          }         
+            jCbBxSexo.setEnabled(true);
+            jTxtFEndereco.setEnabled(true);
+            jTxtFBairro.setEnabled(true);
+            jTxtFCidade.setEnabled(true);
+            jCbBxEstado.setEnabled(true);
+            jFrmtdTxtFRG.setEnabled(true);
+            jTxtFFormacao.setEnabled(true);
+            jTxtFEmail.setEnabled(true);
+            jFrmtdTxtFDataNascto.setEnabled(true);
+            jCbBxEstadoCiv.setEnabled(true);
+            jTxtFNoEndereco.setEnabled(true);
+            jFrmtdTxtFCEP.setEnabled(true);
+            jFrmtdTxtFTelRes.setEnabled(true);
+            jFrmtdTxtFCel.setEnabled(true);
+            jTxtFAreaAtuac.setEnabled(true);
+            jTxtFNome.requestFocus();
+        } else {
+            JOptionPane.showMessageDialog(null, "CPF Inválido");
+        }
     }//GEN-LAST:event_jBtnConsultarActionPerformed
-       else{
-           JOptionPane.showMessageDialog(null,"O CPF informado e invalido");
-       }
-   }
+
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-           conexao = new Conexao("POO", "contaORACLE$2");
+        conexao = new Conexao("PrjFinal_POO", "150297");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
-        daoInstrutor= new DaoInstrutor(conexao.conectar());
+        daoInstrutor = new DaoInstrutor(conexao.conectar());
     }//GEN-LAST:event_formWindowOpened
-
-    private void jFrmtdTxtFCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFCPFActionPerformed
 
     private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
         instrutor = new Instrutor((jTxtFNome.getText()), jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
-        
+
         instrutor.setSexo(jCbBxSexo.getSelectedItem().toString());
         instrutor.setEstado(jCbBxEstado.getSelectedItem().toString());
         instrutor.setEstadoCivil(jCbBxEstadoCiv.getSelectedItem().toString());
-        
+
         instrutor.setRg(jFrmtdTxtFRG.getText().replaceAll("[.,-]", ""));
         instrutor.setDataNasc(jFrmtdTxtFDataNascto.getText());
         instrutor.setTelefone(jFrmtdTxtFTelRes.getText().replaceAll("[(,),-]", ""));
         instrutor.setCelular(jFrmtdTxtFCel.getText().replaceAll("[(,),-]", ""));
         instrutor.setCep(jFrmtdTxtFCEP.getText().replaceAll("-", ""));
-        
+
         instrutor.setEndereco(jTxtFEndereco.getText());
         instrutor.setBairro(jTxtFBairro.getText());
         instrutor.setCidade(jTxtFCidade.getText());
-         instrutor.setNumero(Integer.parseInt(jTxtFNoEndereco.getText()));
+        instrutor.setNumero(Integer.parseInt(jTxtFNoEndereco.getText()));
         instrutor.setFormacao(jTxtFFormacao.getText());
         instrutor.setAreaAtuacao(jTxtFAreaAtuac.getText());
         instrutor.setEmail(jTxtFEmail.getText());
-        
+
         daoInstrutor.inserir(instrutor);
-        
-         jBtnConsultar.setEnabled(true);
-         jBtnInserir.setEnabled(false);
-         jBtnAlterar.setEnabled(false);
-         jBtnExcluir.setEnabled(false);
-        
-       jFrmtdTxtFCPF.setText("");
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+        jBtnAlterar.setEnabled(false);
+        jBtnExcluir.setEnabled(false);
+
+        jFrmtdTxtFCPF.setText("");
         jTxtFNome.setText("");
-       jCbBxSexo.setSelectedItem("M");
-       jTxtFEndereco.setText("");
-       jTxtFBairro.setText("");
-       jTxtFCidade.setText("");
-       jCbBxEstado.setSelectedItem("AC");
-       jFrmtdTxtFRG.setText("");
-       jTxtFFormacao.setText("");
-       jTxtFEmail.setText("");
-       jFrmtdTxtFDataNascto.setText("");
-       jCbBxEstadoCiv.setSelectedItem("Casado");
-       jTxtFNoEndereco.setText("");
-       jFrmtdTxtFCEP.setText("");
-       jFrmtdTxtFTelRes.setText("");
-       jFrmtdTxtFCel.setText("");
-       jTxtFAreaAtuac.setText("");
-       
+        jCbBxSexo.setSelectedItem("M");
+        jTxtFEndereco.setText("");
+        jTxtFBairro.setText("");
+        jTxtFCidade.setText("");
+        jCbBxEstado.setSelectedItem("AC");
+        jFrmtdTxtFRG.setText("");
+        jTxtFFormacao.setText("");
+        jTxtFEmail.setText("");
+        jFrmtdTxtFDataNascto.setText("");
+        jCbBxEstadoCiv.setSelectedItem("Casado");
+        jTxtFNoEndereco.setText("");
+        jFrmtdTxtFCEP.setText("");
+        jFrmtdTxtFTelRes.setText("");
+        jFrmtdTxtFCel.setText("");
+        jTxtFAreaAtuac.setText("");
+
         jFrmtdTxtFCPF.setEnabled(true);
         jTxtFNome.setEnabled(false);
-       jCbBxSexo.setEnabled(false);
-       jTxtFEndereco.setEnabled(false);
-       jTxtFBairro.setEnabled(false);
-       jTxtFCidade.setEnabled(false);
-       jCbBxEstado.setEnabled(false);
-       jFrmtdTxtFRG.setEnabled(false);
-       jTxtFFormacao.setEnabled(false);
-       jTxtFEmail.setEnabled(false);
-       jFrmtdTxtFDataNascto.setEnabled(false);
-       jCbBxEstadoCiv.setEnabled(false);
-       jTxtFNoEndereco.setEnabled(false);
-       jFrmtdTxtFCEP.setEnabled(false);
-       jFrmtdTxtFTelRes.setEnabled(false);
-       jFrmtdTxtFCel.setEnabled(false);
-       jTxtFAreaAtuac.setEnabled(false);
-       
-       jTxtFNome.requestFocus();
+        jCbBxSexo.setEnabled(false);
+        jTxtFEndereco.setEnabled(false);
+        jTxtFBairro.setEnabled(false);
+        jTxtFCidade.setEnabled(false);
+        jCbBxEstado.setEnabled(false);
+        jFrmtdTxtFRG.setEnabled(false);
+        jTxtFFormacao.setEnabled(false);
+        jTxtFEmail.setEnabled(false);
+        jFrmtdTxtFDataNascto.setEnabled(false);
+        jCbBxEstadoCiv.setEnabled(false);
+        jTxtFNoEndereco.setEnabled(false);
+        jFrmtdTxtFCEP.setEnabled(false);
+        jFrmtdTxtFTelRes.setEnabled(false);
+        jFrmtdTxtFCel.setEnabled(false);
+        jTxtFAreaAtuac.setEnabled(false);
+
+        jTxtFNome.requestFocus();
     }//GEN-LAST:event_jBtnInserirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-       
-        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
-            
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            instrutor.setNome(jTxtFNome.getText());
             instrutor.setSexo(jCbBxSexo.getSelectedItem().toString());
             instrutor.setEstado(jCbBxEstado.getSelectedItem().toString());
             instrutor.setEstadoCivil(jCbBxEstadoCiv.getSelectedItem().toString());
-            
-              instrutor.setRg(jFrmtdTxtFRG.getText().replaceAll("[.,-]", ""));
-        instrutor.setDataNasc(jFrmtdTxtFDataNascto.getText());
-        instrutor.setTelefone(jFrmtdTxtFTelRes.getText().replaceAll("[(,),-]", ""));
-        instrutor.setCelular(jFrmtdTxtFCel.getText().replaceAll("[(,),-]", ""));
-        instrutor.setCep(jFrmtdTxtFCEP.getText().replaceAll("-", ""));
-            
+
+            instrutor.setRg(jFrmtdTxtFRG.getText().replaceAll("[.,-]", ""));
+            instrutor.setDataNasc(jFrmtdTxtFDataNascto.getText());
+            instrutor.setTelefone(jFrmtdTxtFTelRes.getText().replaceAll("[(,),-]", ""));
+            instrutor.setCelular(jFrmtdTxtFCel.getText().replaceAll("[(,),-]", ""));
+            instrutor.setCep(jFrmtdTxtFCEP.getText().replaceAll("-", ""));
+
             instrutor.setEndereco(jTxtFEndereco.getText());
             instrutor.setBairro(jTxtFBairro.getText());
             instrutor.setCidade(jTxtFCidade.getText());
@@ -567,101 +526,101 @@ public class GuiInstrutor extends javax.swing.JFrame {
             instrutor.setFormacao(jTxtFFormacao.getText());
             instrutor.setAreaAtuacao(jTxtFAreaAtuac.getText());
             instrutor.setEmail(jTxtFEmail.getText());
-            
-           daoInstrutor.alterar(instrutor);
+
+            daoInstrutor.alterar(instrutor);
         }
-        
-            jBtnConsultar.setEnabled(true);
-            jBtnInserir.setEnabled(false);
-            jBtnAlterar.setEnabled(false);
-            jBtnExcluir.setEnabled(false);        
-        
-           jFrmtdTxtFCPF.setText("");
-           jTxtFNome.setText("");
-           jCbBxSexo.setSelectedItem("M");
-           jTxtFEndereco.setText("");
-           jTxtFBairro.setText("");
-           jTxtFCidade.setText("");
-           jCbBxEstado.setSelectedItem("AC");
-           jFrmtdTxtFRG.setText("");
-           jTxtFFormacao.setText("");
-           jTxtFEmail.setText("");
-           jFrmtdTxtFDataNascto.setText("");
-           jCbBxEstadoCiv.setSelectedItem("Casado");
-           jTxtFNoEndereco.setText("");
-           jFrmtdTxtFCEP.setText("");
-           jFrmtdTxtFTelRes.setText("");
-           jFrmtdTxtFCel.setText("");
-           jTxtFAreaAtuac.setText("");
-           
-           jFrmtdTxtFCPF.setEnabled(true);
-           jTxtFNome.setEnabled(false);
-           jCbBxSexo.setEnabled(false);
-           jTxtFEndereco.setEnabled(false);
-           jTxtFBairro.setEnabled(false);
-           jTxtFCidade.setEnabled(false);
-           jCbBxEstado.setEnabled(false);
-           jFrmtdTxtFRG.setEnabled(false);
-           jTxtFFormacao.setEnabled(false);
-           jTxtFEmail.setEnabled(false);
-           jFrmtdTxtFDataNascto.setEnabled(false);
-           jCbBxEstadoCiv.setEnabled(false);
-           jTxtFNoEndereco.setEnabled(false);
-           jFrmtdTxtFCEP.setEnabled(false);
-           jFrmtdTxtFTelRes.setEnabled(false);
-           jFrmtdTxtFCel.setEnabled(false);
-           jTxtFAreaAtuac.setEnabled(false);
-           
-           jTxtFNome.requestFocus();
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+        jBtnAlterar.setEnabled(false);
+        jBtnExcluir.setEnabled(false);
+
+        jFrmtdTxtFCPF.setText("");
+        jTxtFNome.setText("");
+        jCbBxSexo.setSelectedItem("M");
+        jTxtFEndereco.setText("");
+        jTxtFBairro.setText("");
+        jTxtFCidade.setText("");
+        jCbBxEstado.setSelectedItem("AC");
+        jFrmtdTxtFRG.setText("");
+        jTxtFFormacao.setText("");
+        jTxtFEmail.setText("");
+        jFrmtdTxtFDataNascto.setText("");
+        jCbBxEstadoCiv.setSelectedItem("Casado");
+        jTxtFNoEndereco.setText("");
+        jFrmtdTxtFCEP.setText("");
+        jFrmtdTxtFTelRes.setText("");
+        jFrmtdTxtFCel.setText("");
+        jTxtFAreaAtuac.setText("");
+
+        jFrmtdTxtFCPF.setEnabled(true);
+        jTxtFNome.setEnabled(false);
+        jCbBxSexo.setEnabled(false);
+        jTxtFEndereco.setEnabled(false);
+        jTxtFBairro.setEnabled(false);
+        jTxtFCidade.setEnabled(false);
+        jCbBxEstado.setEnabled(false);
+        jFrmtdTxtFRG.setEnabled(false);
+        jTxtFFormacao.setEnabled(false);
+        jTxtFEmail.setEnabled(false);
+        jFrmtdTxtFDataNascto.setEnabled(false);
+        jCbBxEstadoCiv.setEnabled(false);
+        jTxtFNoEndereco.setEnabled(false);
+        jFrmtdTxtFCEP.setEnabled(false);
+        jFrmtdTxtFTelRes.setEnabled(false);
+        jFrmtdTxtFCel.setEnabled(false);
+        jTxtFAreaAtuac.setEnabled(false);
+
+        jTxtFNome.requestFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
- if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
             daoInstrutor.excluir(instrutor);
-        
-           jFrmtdTxtFCPF.setText("");
+
+            jFrmtdTxtFCPF.setText("");
             jTxtFNome.setText("");
-           jCbBxSexo.setSelectedItem("M");
-           jTxtFEndereco.setText("");
-           jTxtFBairro.setText("");
-           jTxtFCidade.setText("");
-           jCbBxEstado.setSelectedItem("AC");
-           jFrmtdTxtFRG.setText("");
-           jTxtFFormacao.setText("");
-           jTxtFEmail.setText("");
-           jFrmtdTxtFDataNascto.setText("");
-           jCbBxEstadoCiv.setSelectedItem("Casado");
-           jTxtFNoEndereco.setText("");
-           jFrmtdTxtFCEP.setText("");
-           jFrmtdTxtFTelRes.setText("");
-           jFrmtdTxtFCel.setText("");
-           jTxtFAreaAtuac.setText("");
-           
-           jBtnConsultar.setEnabled(true);
-           jBtnInserir.setEnabled(false);
-           jBtnAlterar.setEnabled(false);
-           jBtnExcluir.setEnabled(false);
-           
-           jFrmtdTxtFCPF.setEnabled(true);
-           jTxtFNome.setEnabled(false);
-           jCbBxSexo.setEnabled(false);
-           jTxtFEndereco.setEnabled(false);
-           jTxtFBairro.setEnabled(false);
-           jTxtFCidade.setEnabled(false);
-           jCbBxEstado.setEnabled(false);
-           jFrmtdTxtFRG.setEnabled(false);
-           jTxtFFormacao.setEnabled(false);
-           jTxtFEmail.setEnabled(false);
-           jFrmtdTxtFDataNascto.setEnabled(false);
-           jCbBxEstadoCiv.setEnabled(false);
-           jTxtFNoEndereco.setEnabled(false);
-           jFrmtdTxtFCEP.setEnabled(false);
-           jFrmtdTxtFTelRes.setEnabled(false);
-           jFrmtdTxtFCel.setEnabled(false);
-           jTxtFAreaAtuac.setEnabled(false);
-        }        
+            jCbBxSexo.setSelectedItem("M");
+            jTxtFEndereco.setText("");
+            jTxtFBairro.setText("");
+            jTxtFCidade.setText("");
+            jCbBxEstado.setSelectedItem("AC");
+            jFrmtdTxtFRG.setText("");
+            jTxtFFormacao.setText("");
+            jTxtFEmail.setText("");
+            jFrmtdTxtFDataNascto.setText("");
+            jCbBxEstadoCiv.setSelectedItem("Casado");
+            jTxtFNoEndereco.setText("");
+            jFrmtdTxtFCEP.setText("");
+            jFrmtdTxtFTelRes.setText("");
+            jFrmtdTxtFCel.setText("");
+            jTxtFAreaAtuac.setText("");
+
+            jBtnConsultar.setEnabled(true);
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+
+            jFrmtdTxtFCPF.setEnabled(true);
+            jTxtFNome.setEnabled(false);
+            jCbBxSexo.setEnabled(false);
+            jTxtFEndereco.setEnabled(false);
+            jTxtFBairro.setEnabled(false);
+            jTxtFCidade.setEnabled(false);
+            jCbBxEstado.setEnabled(false);
+            jFrmtdTxtFRG.setEnabled(false);
+            jTxtFFormacao.setEnabled(false);
+            jTxtFEmail.setEnabled(false);
+            jFrmtdTxtFDataNascto.setEnabled(false);
+            jCbBxEstadoCiv.setEnabled(false);
+            jTxtFNoEndereco.setEnabled(false);
+            jFrmtdTxtFCEP.setEnabled(false);
+            jFrmtdTxtFTelRes.setEnabled(false);
+            jFrmtdTxtFCel.setEnabled(false);
+            jTxtFAreaAtuac.setEnabled(false);
+        }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
-  
+
     /**
      * @param args the command line arguments
      */
@@ -739,7 +698,6 @@ public class GuiInstrutor extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFNome;
     // End of variables declaration//GEN-END:variables
 private DaoInstrutor daoInstrutor = null;
-private Instrutor instrutor = null;
-private Conexao conexao = null;
-private String clearstring = "";
+    private Instrutor instrutor = null;
+    private Conexao conexao = null;
 }

@@ -50,7 +50,6 @@ public class GuiCurso extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Curso");
-        setPreferredSize(new java.awt.Dimension(650, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 450));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -74,18 +73,8 @@ public class GuiCurso extends javax.swing.JFrame {
         jLblValHorInst.setText("Valor hora instutor");
 
         jTxtFNome.setEnabled(false);
-        jTxtFNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtFNomeActionPerformed(evt);
-            }
-        });
 
         jTxtFCargaHor.setEnabled(false);
-        jTxtFCargaHor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtFCargaHorActionPerformed(evt);
-            }
-        });
 
         jTxtFVal.setEnabled(false);
 
@@ -227,137 +216,81 @@ public class GuiCurso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
-           dispose();
+        dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
 
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
-       curso = null;
-       curso = daoCurso.consultar(jTxtFSigla.getText());
-       
-       
-       if (curso == null){
-          jBtnConsultar.setEnabled(false);
-          jBtnInserir.setEnabled(true);
-          jTxtFSigla.setEnabled(false);
-          jTxtFNome.setEnabled(true);
-          jTxtFCargaHor.setEnabled(true);
-          jTxtFVal.setEnabled(true);
-          jTxtFProg.setEnabled(true);
-          jFrmtdTxtFDataVig.setEnabled(true);
-          jTxtFValHorInst.setEnabled(true);
-          jTxtFNome.requestFocus();
-       }
-       else{
-       jTxtFNome.setText(curso.getNome());
-       jTxtFCargaHor.setText(String.valueOf(curso.getCargaHoraria()));
-       jTxtFVal.setText(String.valueOf(curso.getValor()));
-       jTxtFProg.setText(curso.getPrograma());
-       jFrmtdTxtFDataVig.setText(curso.getDataVigencia());
-       jTxtFValHorInst.setText(String.valueOf(curso.getValorHoraInstrutor()));
-       
-       jBtnConsultar.setEnabled(false);
-       jBtnAlterar.setEnabled(true);
-       jBtnExcluir.setEnabled(true);
-       
+        curso = null;
+        curso = daoCurso.consultar(jTxtFSigla.getText());
+
+        if (curso == null) {
+            jBtnConsultar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+            jBtnInserir.setEnabled(true);
+        } else {
+            jTxtFNome.setText(curso.getNome());
+            jTxtFCargaHor.setText(String.valueOf(curso.getCargaHoraria()));
+            jTxtFVal.setText(String.valueOf(curso.getValor()));
+            jTxtFProg.setText(curso.getPrograma());
+            jFrmtdTxtFDataVig.setText(curso.getDataVigencia());
+            jTxtFValHorInst.setText(String.valueOf(curso.getValorHoraInstrutor()));
+
+            jBtnConsultar.setEnabled(false);
+            jBtnAlterar.setEnabled(true);
+            jBtnExcluir.setEnabled(true);
+        }
         jTxtFSigla.setEnabled(false);
-          jTxtFNome.setEnabled(true);
-          jTxtFCargaHor.setEnabled(true);
-          jTxtFVal.setEnabled(true);
-          jTxtFProg.setEnabled(true);
-          jFrmtdTxtFDataVig.setEnabled(true);
-          jTxtFValHorInst.setEnabled(true);
-       }
-      
+        jTxtFNome.setEnabled(true);
+        jTxtFCargaHor.setEnabled(true);
+        jTxtFVal.setEnabled(true);
+        jTxtFProg.setEnabled(true);
+        jFrmtdTxtFDataVig.setEnabled(true);
+        jTxtFValHorInst.setEnabled(true);
+        jTxtFNome.requestFocus();
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
-    private void jTxtFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtFNomeActionPerformed
-
-    private void jTxtFCargaHorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFCargaHorActionPerformed
-
-    }//GEN-LAST:event_jTxtFCargaHorActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conexao = new Conexao("POO", "contaORACLE$2");
+        conexao = new Conexao("PrjFinal_POO", "150297");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
-        daoCurso= new DaoCurso(conexao.conectar());
+        daoCurso = new DaoCurso(conexao.conectar());
     }//GEN-LAST:event_formWindowOpened
 
     private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
-    curso = new Curso((jTxtFSigla.getText()), jTxtFNome.getText());
+        curso = new Curso((jTxtFSigla.getText()), jTxtFNome.getText());
         curso.setCargaHoraria(Integer.parseInt(jTxtFCargaHor.getText()));
         curso.setDataVigencia(jFrmtdTxtFDataVig.getText());
         curso.setValor(Double.parseDouble(jTxtFVal.getText()));
         curso.setValorHoraInstrutor(Double.parseDouble(jTxtFValHorInst.getText()));
         curso.setPrograma(jTxtFProg.getText());
-        
+
         daoCurso.inserir(curso);
-        
+
         jBtnConsultar.setEnabled(true);
         jBtnInserir.setEnabled(false);
-        
-        
-           jTxtFSigla.setText("");
-          jTxtFNome.setText("");
-       jTxtFCargaHor.setText("");
-       jTxtFVal.setText("");
-       jTxtFProg.setText("");
-       jFrmtdTxtFDataVig.setText("");
-       jTxtFValHorInst.setText("");
-       
+
+        jTxtFSigla.setText("");
+        jTxtFNome.setText("");
+        jTxtFCargaHor.setText("");
+        jTxtFVal.setText("");
+        jTxtFProg.setText("");
+        jFrmtdTxtFDataVig.setText("");
+        jTxtFValHorInst.setText("");
+
         jTxtFSigla.setEnabled(true);
         jTxtFNome.setEnabled(false);
-       jTxtFCargaHor.setEnabled(false);
-       jTxtFVal.setEnabled(false);
-       jTxtFProg.setEnabled(false);
-       jFrmtdTxtFDataVig.setEnabled(false);
-       jTxtFValHorInst.setEnabled(false);
-       jTxtFNome.requestFocus();
+        jTxtFCargaHor.setEnabled(false);
+        jTxtFVal.setEnabled(false);
+        jTxtFProg.setEnabled(false);
+        jFrmtdTxtFDataVig.setEnabled(false);
+        jTxtFValHorInst.setEnabled(false);
+        jTxtFNome.requestFocus();
     }//GEN-LAST:event_jBtnInserirActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-       if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
-            daoCurso.excluir(curso); 
-            
-            jTxtFSigla.setText("");
-            jTxtFNome.setText("");
-            jTxtFCargaHor.setText("");
-            jTxtFVal.setText("");
-            jTxtFProg.setText(""); 
-            jFrmtdTxtFDataVig.setText("");
-            jTxtFValHorInst.setText("");
-            
-            jTxtFSigla.setEnabled(true);
-       jTxtFNome.setEnabled(false);
-       jTxtFCargaHor.setEnabled(false);
-       jTxtFVal.setEnabled(false);
-       jTxtFProg.setEnabled(false);
-       jFrmtdTxtFDataVig.setEnabled(false);
-       jTxtFValHorInst.setEnabled(false);
-       
-       jBtnConsultar.setEnabled(true);
-         jBtnInserir.setEnabled(false);
-       jBtnAlterar.setEnabled(false);
-       jBtnExcluir.setEnabled(false);
-        } 
-    }//GEN-LAST:event_jBtnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            daoCurso.excluir(curso);
 
-    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
- 
-        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?")== 0){
-            curso.setNome(jTxtFNome.getText());
-            curso.setCargaHoraria(Integer.parseInt(jTxtFCargaHor.getText()));
-            curso.setDataVigencia(jFrmtdTxtFDataVig.getText());
-            curso.setValor(Double.parseDouble(jTxtFVal.getText()));
-            curso.setValorHoraInstrutor(Double.parseDouble(jTxtFValHorInst.getText()));
-            curso.setPrograma(jTxtFProg.getText());
-            
-            
-           daoCurso.alterar(curso);
-        }
-        
             jTxtFSigla.setText("");
             jTxtFNome.setText("");
             jTxtFCargaHor.setText("");
@@ -365,7 +298,7 @@ public class GuiCurso extends javax.swing.JFrame {
             jTxtFProg.setText("");
             jFrmtdTxtFDataVig.setText("");
             jTxtFValHorInst.setText("");
-            
+
             jTxtFSigla.setEnabled(true);
             jTxtFNome.setEnabled(false);
             jTxtFCargaHor.setEnabled(false);
@@ -373,12 +306,48 @@ public class GuiCurso extends javax.swing.JFrame {
             jTxtFProg.setEnabled(false);
             jFrmtdTxtFDataVig.setEnabled(false);
             jTxtFValHorInst.setEnabled(false);
-            
+
             jBtnConsultar.setEnabled(true);
             jBtnInserir.setEnabled(false);
             jBtnAlterar.setEnabled(false);
-            jBtnExcluir.setEnabled(false);        
-       
+            jBtnExcluir.setEnabled(false);
+        }
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            curso.setNome(jTxtFNome.getText());
+            curso.setCargaHoraria(Integer.parseInt(jTxtFCargaHor.getText()));
+            curso.setDataVigencia(jFrmtdTxtFDataVig.getText());
+            curso.setValor(Double.parseDouble(jTxtFVal.getText()));
+            curso.setValorHoraInstrutor(Double.parseDouble(jTxtFValHorInst.getText()));
+            curso.setPrograma(jTxtFProg.getText());
+
+            daoCurso.alterar(curso);
+        }
+
+        jTxtFSigla.setText("");
+        jTxtFNome.setText("");
+        jTxtFCargaHor.setText("");
+        jTxtFVal.setText("");
+        jTxtFProg.setText("");
+        jFrmtdTxtFDataVig.setText("");
+        jTxtFValHorInst.setText("");
+
+        jTxtFSigla.setEnabled(true);
+        jTxtFNome.setEnabled(false);
+        jTxtFCargaHor.setEnabled(false);
+        jTxtFVal.setEnabled(false);
+        jTxtFProg.setEnabled(false);
+        jFrmtdTxtFDataVig.setEnabled(false);
+        jTxtFValHorInst.setEnabled(false);
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+        jBtnAlterar.setEnabled(false);
+        jBtnExcluir.setEnabled(false);
+
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     /**
@@ -438,7 +407,7 @@ public class GuiCurso extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFValHorInst;
     // End of variables declaration//GEN-END:variables
 private DaoCurso daoCurso = null;
-private Curso curso = null;
-private Conexao conexao = null;
+    private Curso curso = null;
+    private Conexao conexao = null;
 
 }

@@ -154,7 +154,7 @@ public class Pessoa {
         if (cpf.length() != 11) {
             return false;
         } else {
-            for (i = 0; i < 11; i++) {
+            for (i = 0; i < 10; i++) {
                 if (cpf.charAt(i) != cpf.charAt(i + 1)) {
                     flag = true;
                     break;

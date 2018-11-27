@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
 
 import fatec.poo.control.Conexao;
 import fatec.poo.control.DaoCurso;
 import fatec.poo.control.DaoTurma;
-import fatec.poo.model.Curso;
 import fatec.poo.model.Turma;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -95,7 +89,6 @@ public class GuiTurma extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFrmtdTxtFDataInicio.setText("  /  /    ");
         jFrmtdTxtFDataInicio.setEnabled(false);
 
         try {
@@ -103,13 +96,7 @@ public class GuiTurma extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFrmtdTxtFDataTermino.setText("  /  /    ");
         jFrmtdTxtFDataTermino.setEnabled(false);
-        jFrmtdTxtFDataTermino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFDataTerminoActionPerformed(evt);
-            }
-        });
 
         jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         jBtnInserir.setText("Inserir");
@@ -250,8 +237,8 @@ public class GuiTurma extends javax.swing.JFrame {
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
         turma = null;
         turma = daoTurma.consultar(jTxtFSiglaTur.getText());
-        
-        if (turma == null){
+
+        if (turma == null) {
             jTxtFSiglaTur.setEnabled(false);
             jCbBxCurso.setEnabled(true);
             jTxtFDesc.setEnabled(true);
@@ -260,19 +247,19 @@ public class GuiTurma extends javax.swing.JFrame {
             jCbBxPeriodo.setEnabled(true);
             jFrmtdTxtFDataInicio.setEnabled(true);
             jFrmtdTxtFDataTermino.setEnabled(true);
-            
+
             jBtnConsultar.setEnabled(false);
             jBtnInserir.setEnabled(true);
             jBtnAlterar.setEnabled(false);
             jBtnExcluir.setEnabled(false);
-        }else{
+        } else {
             jCbBxCurso.setSelectedItem(turma.getCurso().getSigla());
             jTxtFDesc.setText(turma.getDescricao());
             jTxtFQtdeVagas.setText(Integer.toString(turma.getQtdeVagas()));
             jCbBxPeriodo.setSelectedItem(turma.getPeriodo());
             jFrmtdTxtFDataInicio.setText(turma.getDataInicio());
             jFrmtdTxtFDataTermino.setText(turma.getDataTermino());
-            
+
             jTxtFSiglaTur.setEnabled(false);
             jCbBxCurso.setEnabled(true);
             jTxtFDesc.setEnabled(true);
@@ -281,11 +268,11 @@ public class GuiTurma extends javax.swing.JFrame {
             jCbBxPeriodo.setEnabled(true);
             jFrmtdTxtFDataInicio.setEnabled(true);
             jFrmtdTxtFDataTermino.setEnabled(true);
-            
+
             jBtnConsultar.setEnabled(false);
             jBtnInserir.setEnabled(false);
             jBtnAlterar.setEnabled(true);
-            jBtnExcluir.setEnabled(true); 
+            jBtnExcluir.setEnabled(true);
         }
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
@@ -297,16 +284,16 @@ public class GuiTurma extends javax.swing.JFrame {
         turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
         turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
         turma.setDataTermino(jFrmtdTxtFDataTermino.getText());
-        
+
         daoTurma.inserir(turma);
-        //jCbBxCurso.setSelectedIndex(0);
+        jCbBxCurso.setSelectedIndex(0);
         jTxtFSiglaTur.setText("");
         jTxtFDesc.setText("");
         jTxtFQtdeVagas.setText("");
-        //jCbBxPeriodo.setSelectedIndex(0);
+        jCbBxPeriodo.setSelectedIndex(0);
         jFrmtdTxtFDataInicio.setText("");
         jFrmtdTxtFDataTermino.setText("");
-        
+
         jTxtFSiglaTur.setEnabled(true);
         jCbBxCurso.setEnabled(false);
         jTxtFDesc.setEnabled(false);
@@ -315,27 +302,27 @@ public class GuiTurma extends javax.swing.JFrame {
         jFrmtdTxtFDataInicio.setEnabled(false);
         jFrmtdTxtFDataTermino.setEnabled(false);
         jTxtFSiglaTur.requestFocus();
-        
+
         jBtnConsultar.setEnabled(true);
         jBtnInserir.setEnabled(false);
     }//GEN-LAST:event_jBtnInserirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conexao = new Conexao("poo", "batata123");
+        conexao = new Conexao("PrjFinal_POO", "150297");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
         daoTurma = new DaoTurma(conexao.conectar());
         daoCurso = new DaoCurso(conexao.conectar());
         ArrayList<String> siglas = daoCurso.listarSiglas();
-        
-        for(String i: siglas){
+
+        for (String i : siglas) {
             jCbBxCurso.addItem(i);
         }
-        
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0){
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
             daoCurso = new DaoCurso(conexao.conectar());
             turma.setDescricao(jTxtFDesc.getText());
             turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
@@ -343,17 +330,17 @@ public class GuiTurma extends javax.swing.JFrame {
             turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
             turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
             turma.setDataInicio(jFrmtdTxtFDataTermino.getText());
-           
-           daoTurma.alterar(turma);
+
+            daoTurma.alterar(turma);
         }
-        //jCbBxCurso.setSelectedIndex(0);
+        jCbBxCurso.setSelectedIndex(0);
         jTxtFSiglaTur.setText("");
         jTxtFDesc.setText("");
         jTxtFQtdeVagas.setText("");
-        //jCbBxPeriodo.setSelectedIndex(0);
+        jCbBxPeriodo.setSelectedIndex(0);
         jFrmtdTxtFDataInicio.setText("");
         jFrmtdTxtFDataTermino.setText("");
-        
+
         jTxtFSiglaTur.setEnabled(true);
         jCbBxCurso.setEnabled(false);
         jTxtFDesc.setEnabled(false);
@@ -362,7 +349,7 @@ public class GuiTurma extends javax.swing.JFrame {
         jFrmtdTxtFDataInicio.setEnabled(false);
         jFrmtdTxtFDataTermino.setEnabled(false);
         jTxtFSiglaTur.requestFocus();
-        
+
         jBtnConsultar.setEnabled(true);
         jBtnInserir.setEnabled(false);
         jBtnAlterar.setEnabled(false);
@@ -370,13 +357,13 @@ public class GuiTurma extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Confirma Exclsão?") == 0){
-            daoTurma.excluir(turma); 
-            //jCbBxCurso.setSelectedIndex(0);
+        if (JOptionPane.showConfirmDialog(null, "Confirma Exclsão?") == 0) {
+            daoTurma.excluir(turma);
+            jCbBxCurso.setSelectedIndex(0);
             jTxtFSiglaTur.setText("");
             jTxtFDesc.setText("");
             jTxtFQtdeVagas.setText("");
-            //jCbBxPeriodo.setSelectedIndex(0);
+            jCbBxPeriodo.setSelectedIndex(0);
             jFrmtdTxtFDataInicio.setText("");
             jFrmtdTxtFDataTermino.setText("");
 
@@ -393,12 +380,8 @@ public class GuiTurma extends javax.swing.JFrame {
             jBtnInserir.setEnabled(false);
             jBtnAlterar.setEnabled(false);
             jBtnExcluir.setEnabled(false);
-        } 
+        }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
-
-    private void jFrmtdTxtFDataTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFDataTerminoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFDataTerminoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,7 +440,7 @@ public class GuiTurma extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFSiglaTur;
     // End of variables declaration//GEN-END:variables
     private DaoTurma daoTurma = null;
-    private Turma turma = null; 
+    private Turma turma = null;
     private Conexao conexao = null;
     private DaoCurso daoCurso = null;
 }
