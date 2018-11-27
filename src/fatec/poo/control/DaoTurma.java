@@ -29,8 +29,6 @@ public class DaoTurma {
             ps.setString(4, turma.getDataTermino());
             ps.setString(5, turma.getPeriodo());
             ps.setInt(6, turma.getQtdeVagas());
-            //ps.setString(7, turma.getObservacoes());
-            //ps.setString(8, turma.getInstrutor().getCpf());
             ps.setString(7, turma.getCurso().getSigla());
             ps.execute();
         } catch (SQLException ex) {
@@ -48,8 +46,6 @@ public class DaoTurma {
             ps.setString(3, turma.getDataTermino());
             ps.setString(4, turma.getPeriodo());
             ps.setInt(5, turma.getQtdeVagas());
-            //ps.setString(6, turma.getObservacoes());
-            //ps.setString(7, turma.getInstrutor().getCpf());
             ps.setString(6, turma.getCurso().getSigla());
             ps.setString(7, turma.getSiglaTurma());
             ps.execute();
@@ -61,7 +57,6 @@ public class DaoTurma {
     public Turma consultar(String siglaTurma) {
         Turma t = null;
         DaoCurso dc = new DaoCurso(conn);
-        //DaoInstrutor di = null;
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("SELECT * FROM tb_Turma WHERE siglaTurma = ?");
@@ -74,8 +69,6 @@ public class DaoTurma {
                 t.setDataTermino(rs.getString("dataTermino"));
                 t.setPeriodo(rs.getString("periodo"));
                 t.setQtdeVagas(rs.getInt("qtdeVagas"));
-                //t.setObservacoes(rs.getString("observacoes"));
-                //t.setInstrutor(di.consultar(rs.getString("cpfInstrutor")));
                 t.setCurso(dc.consultar(rs.getString("siglaCurso")));
             }
         } catch (SQLException ex) {
