@@ -1,14 +1,9 @@
 package fatec.poo.view;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author deco_
+ * @author Andre Constancio
+ * @author Guilherme Sernajoto
  */
 public class GuiMenu extends javax.swing.JFrame {
 
@@ -17,6 +12,8 @@ public class GuiMenu extends javax.swing.JFrame {
      */
     public GuiMenu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setSize(650, 450);
     }
 
     /**
@@ -34,7 +31,7 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuIteTurma = new javax.swing.JMenuItem();
         jMenuIteIntrutor = new javax.swing.JMenuItem();
         jMenuIteAluno = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jSeparatorCadastro = new javax.swing.JPopupMenu.Separator();
         jMenuIteSair = new javax.swing.JMenuItem();
         jMenuTitOperacoes = new javax.swing.JMenu();
         jMenuIteAlocInstrutor = new javax.swing.JMenuItem();
@@ -42,6 +39,7 @@ public class GuiMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trabalho POO");
+        setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
         jMenuIteCadas.setText("Cadastro");
@@ -55,6 +53,11 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuIteCadas.add(jMenuIteCurso);
 
         jMenuIteTurma.setText("Turma");
+        jMenuIteTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteTurmaActionPerformed(evt);
+            }
+        });
         jMenuIteCadas.add(jMenuIteTurma);
 
         jMenuIteIntrutor.setText("Instrutor");
@@ -66,8 +69,13 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuIteCadas.add(jMenuIteIntrutor);
 
         jMenuIteAluno.setText("Aluno");
+        jMenuIteAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteAlunoActionPerformed(evt);
+            }
+        });
         jMenuIteCadas.add(jMenuIteAluno);
-        jMenuIteCadas.add(jSeparator1);
+        jMenuIteCadas.add(jSeparatorCadastro);
 
         jMenuIteSair.setText("Sair");
         jMenuIteSair.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +90,11 @@ public class GuiMenu extends javax.swing.JFrame {
         jMenuTitOperacoes.setText("Operações");
 
         jMenuIteAlocInstrutor.setText("Alocar Instrutor");
+        jMenuIteAlocInstrutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuIteAlocInstrutorActionPerformed(evt);
+            }
+        });
         jMenuTitOperacoes.add(jMenuIteAlocInstrutor);
 
         jMenuIteEfetMatricula.setText("Efetuar Matrícula");
@@ -104,14 +117,14 @@ public class GuiMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
+            .addGap(0, 344, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuIteEfetMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteEfetMatriculaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jMenuIteEfetMatriculaActionPerformed
 
     private void jMenuIteSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteSairActionPerformed
@@ -119,12 +132,36 @@ public class GuiMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuIteSairActionPerformed
 
     private void jMenuIteCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteCursoActionPerformed
-      new GuiCurso().setVisible(true);
+        GuiCurso guiCurso = new GuiCurso();
+        guiCurso.setSize(650, 450);
+        guiCurso.setLocationRelativeTo(null);
+        guiCurso.setVisible(true);
     }//GEN-LAST:event_jMenuIteCursoActionPerformed
 
     private void jMenuIteIntrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteIntrutorActionPerformed
-      new GuiInstrutor().setVisible(true);        // TODO add your handling code here:
+        GuiInstrutor guiInstrutor = new GuiInstrutor();
+        guiInstrutor.setSize(650, 450);
+        guiInstrutor.setLocationRelativeTo(null);
+        guiInstrutor.setVisible(true);
     }//GEN-LAST:event_jMenuIteIntrutorActionPerformed
+
+    private void jMenuIteTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteTurmaActionPerformed
+        GuiTurma guiTurma = new GuiTurma();
+        guiTurma.setSize(650, 450);
+        guiTurma.setLocationRelativeTo(null);
+        guiTurma.setVisible(true);
+    }//GEN-LAST:event_jMenuIteTurmaActionPerformed
+
+    private void jMenuIteAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteAlunoActionPerformed
+        GuiAluno guiAluno = new GuiAluno();
+        guiAluno.setSize(650, 450);
+        guiAluno.setLocationRelativeTo(null);
+        guiAluno.setVisible(true);
+    }//GEN-LAST:event_jMenuIteAlunoActionPerformed
+
+    private void jMenuIteAlocInstrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteAlocInstrutorActionPerformed
+
+    }//GEN-LAST:event_jMenuIteAlocInstrutorActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -176,6 +213,6 @@ public class GuiMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuIteSair;
     private javax.swing.JMenuItem jMenuIteTurma;
     private javax.swing.JMenu jMenuTitOperacoes;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparatorCadastro;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,13 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
+
+import fatec.poo.control.DaoCurso;
+import fatec.poo.model.Curso;
+import fatec.poo.control.Conexao;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author deco_
+ * @author André Constancio
+ * @author Guilherme Sernajoto
  */
 public class GuiCurso extends javax.swing.JFrame {
 
@@ -47,9 +48,15 @@ public class GuiCurso extends javax.swing.JFrame {
         jBtnSair = new javax.swing.JButton();
         jBtnInserir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Curso");
-        setSize(new java.awt.Dimension(600, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 450));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLblSigla.setText("Sigla curso");
 
@@ -65,12 +72,6 @@ public class GuiCurso extends javax.swing.JFrame {
 
         jLblValHorInst.setText("Valor hora instutor");
 
-        jTxtFSigla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtFSiglaActionPerformed(evt);
-            }
-        });
-
         jTxtFNome.setEnabled(false);
 
         jTxtFCargaHor.setEnabled(false);
@@ -85,24 +86,34 @@ public class GuiCurso extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFrmtdTxtFDataVig.setEnabled(false);
-        jFrmtdTxtFDataVig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFrmtdTxtFDataVigActionPerformed(evt);
-            }
-        });
 
         jTxtFValHorInst.setEnabled(false);
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
         jBtnAlterar.setEnabled(false);
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         jBtnConsultar.setText("Consultar");
+        jBtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.setEnabled(false);
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnExcluirActionPerformed(evt);
+            }
+        });
 
         jBtnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         jBtnSair.setText("Sair");
@@ -115,6 +126,11 @@ public class GuiCurso extends javax.swing.JFrame {
         jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         jBtnInserir.setText("Inserir");
         jBtnInserir.setEnabled(false);
+        jBtnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnInserirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,7 +202,7 @@ public class GuiCurso extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLblProg)
                     .addComponent(jTxtFProg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnConsultar)
                     .addComponent(jBtnInserir)
@@ -199,17 +215,140 @@ public class GuiCurso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtFSiglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFSiglaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtFSiglaActionPerformed
-
-    private void jFrmtdTxtFDataVigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFrmtdTxtFDataVigActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFrmtdTxtFDataVigActionPerformed
-
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
-           dispose();
+        dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
+
+    private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
+        curso = null;
+        curso = daoCurso.consultar(jTxtFSigla.getText());
+
+        if (curso == null) {
+            jBtnExcluir.setEnabled(false);
+            jBtnInserir.setEnabled(true);
+        } else {
+            jTxtFNome.setText(curso.getNome());
+            jTxtFCargaHor.setText(String.valueOf(curso.getCargaHoraria()));
+            jTxtFVal.setText(String.valueOf(curso.getValor()));
+            jTxtFProg.setText(curso.getPrograma());
+            jFrmtdTxtFDataVig.setText(curso.getDataVigencia());
+            jTxtFValHorInst.setText(String.valueOf(curso.getValorHoraInstrutor()));
+
+            jBtnAlterar.setEnabled(true);
+            jBtnExcluir.setEnabled(true);
+        }
+        jTxtFSigla.setEnabled(false);
+        jTxtFNome.setEnabled(true);
+        jTxtFCargaHor.setEnabled(true);
+        jTxtFVal.setEnabled(true);
+        jTxtFProg.setEnabled(true);
+        jFrmtdTxtFDataVig.setEnabled(true);
+        jTxtFValHorInst.setEnabled(true);
+        jTxtFNome.requestFocus();
+        
+        jBtnConsultar.setEnabled(false);
+    }//GEN-LAST:event_jBtnConsultarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conexao = new Conexao("PrjFinal_POO", "150297");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        daoCurso = new DaoCurso(conexao.conectar());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
+        curso = new Curso((jTxtFSigla.getText()), jTxtFNome.getText());
+        curso.setCargaHoraria(Integer.parseInt(jTxtFCargaHor.getText()));
+        curso.setDataVigencia(jFrmtdTxtFDataVig.getText());
+        curso.setValor(Double.parseDouble(jTxtFVal.getText()));
+        curso.setValorHoraInstrutor(Double.parseDouble(jTxtFValHorInst.getText()));
+        curso.setPrograma(jTxtFProg.getText());
+
+        daoCurso.inserir(curso);
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+
+        jTxtFSigla.setText("");
+        jTxtFNome.setText("");
+        jTxtFCargaHor.setText("");
+        jTxtFVal.setText("");
+        jTxtFProg.setText("");
+        jFrmtdTxtFDataVig.setText("");
+        jTxtFValHorInst.setText("");
+
+        jTxtFSigla.setEnabled(true);
+        jTxtFNome.setEnabled(false);
+        jTxtFCargaHor.setEnabled(false);
+        jTxtFVal.setEnabled(false);
+        jTxtFProg.setEnabled(false);
+        jFrmtdTxtFDataVig.setEnabled(false);
+        jTxtFValHorInst.setEnabled(false);
+        jTxtFNome.requestFocus();
+    }//GEN-LAST:event_jBtnInserirActionPerformed
+
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            daoCurso.excluir(curso);
+
+            jTxtFSigla.setText("");
+            jTxtFNome.setText("");
+            jTxtFCargaHor.setText("");
+            jTxtFVal.setText("");
+            jTxtFProg.setText("");
+            jFrmtdTxtFDataVig.setText("");
+            jTxtFValHorInst.setText("");
+
+            jTxtFSigla.setEnabled(true);
+            jTxtFNome.setEnabled(false);
+            jTxtFCargaHor.setEnabled(false);
+            jTxtFVal.setEnabled(false);
+            jTxtFProg.setEnabled(false);
+            jFrmtdTxtFDataVig.setEnabled(false);
+            jTxtFValHorInst.setEnabled(false);
+
+            jBtnConsultar.setEnabled(true);
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+        }
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            curso.setNome(jTxtFNome.getText());
+            curso.setCargaHoraria(Integer.parseInt(jTxtFCargaHor.getText()));
+            curso.setDataVigencia(jFrmtdTxtFDataVig.getText());
+            curso.setValor(Double.parseDouble(jTxtFVal.getText()));
+            curso.setValorHoraInstrutor(Double.parseDouble(jTxtFValHorInst.getText()));
+            curso.setPrograma(jTxtFProg.getText());
+
+            daoCurso.alterar(curso);
+        }
+
+        jTxtFSigla.setText("");
+        jTxtFNome.setText("");
+        jTxtFCargaHor.setText("");
+        jTxtFVal.setText("");
+        jTxtFProg.setText("");
+        jFrmtdTxtFDataVig.setText("");
+        jTxtFValHorInst.setText("");
+
+        jTxtFSigla.setEnabled(true);
+        jTxtFNome.setEnabled(false);
+        jTxtFCargaHor.setEnabled(false);
+        jTxtFVal.setEnabled(false);
+        jTxtFProg.setEnabled(false);
+        jFrmtdTxtFDataVig.setEnabled(false);
+        jTxtFValHorInst.setEnabled(false);
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+        jBtnAlterar.setEnabled(false);
+        jBtnExcluir.setEnabled(false);
+
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,4 +406,8 @@ public class GuiCurso extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtFVal;
     private javax.swing.JTextField jTxtFValHorInst;
     // End of variables declaration//GEN-END:variables
+    private DaoCurso daoCurso = null;
+    private Curso curso = null;
+    private Conexao conexao = null;
+
 }

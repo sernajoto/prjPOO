@@ -147,4 +147,47 @@ public class Pessoa {
         this.email = email;
     }
 
+    public static boolean validadarCPF(String cpf) {
+        int i, d1, d2, mpl;
+        boolean flag = false;
+
+        if (cpf.length() != 11) {
+            return false;
+        } else {
+            for (i = 0; i < 10; i++) {
+                if (cpf.charAt(i) != cpf.charAt(i + 1)) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag) {
+                return false;
+            }
+
+            for (i = d1 = 0, mpl = 10; i < 9; i++, mpl--) {
+                d1 += Integer.parseInt(String.valueOf(cpf.charAt(i))) * mpl;
+            }
+
+            for (i = d2 = 0, mpl = 11; i < 10; i++, mpl--) {
+                d2 += Integer.parseInt(String.valueOf(cpf.charAt(i))) * mpl;
+            }
+
+            d1 = (d1 * 10) % 11;
+            d2 = (d2 * 10) % 11;
+
+            if (d1 == 10) {
+                d1 = 0;
+            }
+            if (d2 == 10) {
+                d2 = 0;
+            }
+
+            if (d1 == Integer.parseInt(String.valueOf(cpf.charAt(9))) && d2 == Integer.parseInt(String.valueOf(cpf.charAt(10)))) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
