@@ -1,11 +1,5 @@
 package fatec.poo.view;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Andre Constancio
@@ -138,31 +132,31 @@ public class GuiMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuIteSairActionPerformed
 
     private void jMenuIteCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteCursoActionPerformed
-      GuiCurso guiCurso = new GuiCurso();
-      guiCurso.setSize(650, 450);
-      guiCurso.setLocationRelativeTo(null);
-      guiCurso.setVisible(true);
+        GuiCurso guiCurso = new GuiCurso();
+        guiCurso.setSize(650, 450);
+        guiCurso.setLocationRelativeTo(null);
+        guiCurso.setVisible(true);
     }//GEN-LAST:event_jMenuIteCursoActionPerformed
 
     private void jMenuIteIntrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteIntrutorActionPerformed
-      GuiInstrutor guiInstrutor = new GuiInstrutor();
-      guiInstrutor.setSize(650, 450);
-      guiInstrutor.setLocationRelativeTo(null);
-      guiInstrutor.setVisible(true);
+        GuiInstrutor guiInstrutor = new GuiInstrutor();
+        guiInstrutor.setSize(650, 450);
+        guiInstrutor.setLocationRelativeTo(null);
+        guiInstrutor.setVisible(true);
     }//GEN-LAST:event_jMenuIteIntrutorActionPerformed
 
     private void jMenuIteTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteTurmaActionPerformed
-      GuiTurma guiTurma = new GuiTurma();
-      guiTurma.setSize(650, 450);
-      guiTurma.setLocationRelativeTo(null);
-      guiTurma.setVisible(true);
+        GuiTurma guiTurma = new GuiTurma();
+        guiTurma.setSize(650, 450);
+        guiTurma.setLocationRelativeTo(null);
+        guiTurma.setVisible(true);
     }//GEN-LAST:event_jMenuIteTurmaActionPerformed
 
     private void jMenuIteAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteAlunoActionPerformed
-      GuiAluno guiAluno = new GuiAluno();
-      guiAluno.setSize(650, 450);
-      guiAluno.setLocationRelativeTo(null);
-      guiAluno.setVisible(true);
+        GuiAluno guiAluno = new GuiAluno();
+        guiAluno.setSize(650, 450);
+        guiAluno.setLocationRelativeTo(null);
+        guiAluno.setVisible(true);
     }//GEN-LAST:event_jMenuIteAlunoActionPerformed
 
     private void jMenuIteAlocInstrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteAlocInstrutorActionPerformed

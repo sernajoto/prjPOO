@@ -1,9 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.poo.view;
+
+import fatec.poo.control.Conexao;
+import fatec.poo.control.DaoCurso;
+import fatec.poo.control.DaoTurma;
+import fatec.poo.model.Turma;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,7 +33,7 @@ public class GuiTurma extends javax.swing.JFrame {
         jLblSiglaTurma = new javax.swing.JLabel();
         jTxtFSiglaTur = new javax.swing.JTextField();
         jLblNome = new javax.swing.JLabel();
-        jTxtFNome = new javax.swing.JTextField();
+        jTxtFDesc = new javax.swing.JTextField();
         jLblQtdeVagas = new javax.swing.JLabel();
         jLblCurso = new javax.swing.JLabel();
         jCbBxCurso = new javax.swing.JComboBox<>();
@@ -53,49 +55,83 @@ public class GuiTurma extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(650, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 450));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLblSiglaTurma.setText("Sigla da Turma");
 
-        jTxtFSiglaTur.setEnabled(false);
+        jLblNome.setText("Descrição");
 
-        jLblNome.setText("Nome");
-
-        jTxtFNome.setEnabled(false);
+        jTxtFDesc.setEnabled(false);
 
         jLblQtdeVagas.setText("Qtde Vagas");
 
         jLblCurso.setText("Curso");
 
+        jCbBxCurso.setEnabled(false);
+
         jTxtFQtdeVagas.setEnabled(false);
 
         jLblPeriodo.setText("Período");
 
+        jCbBxPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde", "Noite", "Integral" }));
         jCbBxPeriodo.setEnabled(false);
 
         jLblDataInicio.setText("Data início");
 
         jLblDataTermino.setText("Data término");
 
-        jFrmtdTxtFDataInicio.setText("  /  /    ");
+        try {
+            jFrmtdTxtFDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFrmtdTxtFDataInicio.setEnabled(false);
 
-        jFrmtdTxtFDataTermino.setText("  /  /    ");
+        try {
+            jFrmtdTxtFDataTermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFrmtdTxtFDataTermino.setEnabled(false);
 
         jBtnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/add.png"))); // NOI18N
         jBtnInserir.setText("Inserir");
         jBtnInserir.setEnabled(false);
+        jBtnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnInserirActionPerformed(evt);
+            }
+        });
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
         jBtnAlterar.setEnabled(false);
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/pesq.png"))); // NOI18N
         jBtnConsultar.setText("Consultar");
+        jBtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/Eraser.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.setEnabled(false);
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnExcluirActionPerformed(evt);
+            }
+        });
 
         jBtnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fatec/poo/view/icon/exit.png"))); // NOI18N
         jBtnSair.setText("Sair");
@@ -135,7 +171,7 @@ public class GuiTurma extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jCbBxCurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTxtFSiglaTur)
-                        .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxtFDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -166,7 +202,7 @@ public class GuiTurma extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblNome)
-                    .addComponent(jTxtFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtFDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblQtdeVagas)
@@ -197,6 +233,145 @@ public class GuiTurma extends javax.swing.JFrame {
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
+
+    private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
+        turma = null;
+        turma = daoTurma.consultar(jTxtFSiglaTur.getText());
+
+        if (turma == null) {
+            jBtnInserir.setEnabled(true);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+        } else {
+            jCbBxCurso.setSelectedItem(turma.getCurso().getSigla());
+            jTxtFDesc.setText(turma.getDescricao());
+            jTxtFQtdeVagas.setText(Integer.toString(turma.getQtdeVagas()));
+            jCbBxPeriodo.setSelectedItem(turma.getPeriodo());
+            jFrmtdTxtFDataInicio.setText(turma.getDataInicio());
+            jFrmtdTxtFDataTermino.setText(turma.getDataTermino());
+
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(true);
+            jBtnExcluir.setEnabled(true);
+        }
+            jTxtFSiglaTur.setEnabled(false);
+            jCbBxCurso.setEnabled(true);
+            jTxtFDesc.setEnabled(true);
+            jTxtFDesc.requestFocus();
+            jTxtFQtdeVagas.setEnabled(true);
+            jCbBxPeriodo.setEnabled(true);
+            jFrmtdTxtFDataInicio.setEnabled(true);
+            jFrmtdTxtFDataTermino.setEnabled(true);
+            
+            jBtnConsultar.setEnabled(false);
+    }//GEN-LAST:event_jBtnConsultarActionPerformed
+
+    private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
+        daoCurso = new DaoCurso(conexao.conectar());
+        turma = new Turma(jTxtFSiglaTur.getText(), jTxtFDesc.getText());
+        turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
+        turma.setQtdeVagas(Integer.parseInt(jTxtFQtdeVagas.getText()));
+        turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
+        turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
+        turma.setDataTermino(jFrmtdTxtFDataTermino.getText());
+
+        daoTurma.inserir(turma);
+        jCbBxCurso.setSelectedIndex(0);
+        jTxtFSiglaTur.setText("");
+        jTxtFDesc.setText("");
+        jTxtFQtdeVagas.setText("");
+        jCbBxPeriodo.setSelectedIndex(0);
+        jFrmtdTxtFDataInicio.setText("");
+        jFrmtdTxtFDataTermino.setText("");
+
+        jTxtFSiglaTur.setEnabled(true);
+        jCbBxCurso.setEnabled(false);
+        jTxtFDesc.setEnabled(false);
+        jTxtFQtdeVagas.setEnabled(false);
+        jCbBxPeriodo.setEnabled(false);
+        jFrmtdTxtFDataInicio.setEnabled(false);
+        jFrmtdTxtFDataTermino.setEnabled(false);
+        jTxtFSiglaTur.requestFocus();
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+    }//GEN-LAST:event_jBtnInserirActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        conexao = new Conexao("PrjFinal_POO", "150297");
+        conexao.setDriver("oracle.jdbc.driver.OracleDriver");
+        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        daoTurma = new DaoTurma(conexao.conectar());
+        daoCurso = new DaoCurso(conexao.conectar());
+        ArrayList<String> siglas = daoCurso.listarSiglas();
+
+        for (String i : siglas) {
+            jCbBxCurso.addItem(i);
+        }
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
+            daoCurso = new DaoCurso(conexao.conectar());
+            turma.setDescricao(jTxtFDesc.getText());
+            turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
+            turma.setQtdeVagas(Integer.parseInt(jTxtFQtdeVagas.getText()));
+            turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
+            turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
+            turma.setDataInicio(jFrmtdTxtFDataTermino.getText());
+
+            daoTurma.alterar(turma);
+        }
+        jCbBxCurso.setSelectedIndex(0);
+        jTxtFSiglaTur.setText("");
+        jTxtFDesc.setText("");
+        jTxtFQtdeVagas.setText("");
+        jCbBxPeriodo.setSelectedIndex(0);
+        jFrmtdTxtFDataInicio.setText("");
+        jFrmtdTxtFDataTermino.setText("");
+
+        jTxtFSiglaTur.setEnabled(true);
+        jCbBxCurso.setEnabled(false);
+        jTxtFDesc.setEnabled(false);
+        jTxtFQtdeVagas.setEnabled(false);
+        jCbBxPeriodo.setEnabled(false);
+        jFrmtdTxtFDataInicio.setEnabled(false);
+        jFrmtdTxtFDataTermino.setEnabled(false);
+        jTxtFSiglaTur.requestFocus();
+
+        jBtnConsultar.setEnabled(true);
+        jBtnInserir.setEnabled(false);
+        jBtnAlterar.setEnabled(false);
+        jBtnExcluir.setEnabled(false);
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
+
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Confirma Exclsão?") == 0) {
+            daoTurma.excluir(turma);
+            jCbBxCurso.setSelectedIndex(0);
+            jTxtFSiglaTur.setText("");
+            jTxtFDesc.setText("");
+            jTxtFQtdeVagas.setText("");
+            jCbBxPeriodo.setSelectedIndex(0);
+            jFrmtdTxtFDataInicio.setText("");
+            jFrmtdTxtFDataTermino.setText("");
+
+            jTxtFSiglaTur.setEnabled(true);
+            jCbBxCurso.setEnabled(false);
+            jTxtFDesc.setEnabled(false);
+            jTxtFQtdeVagas.setEnabled(false);
+            jCbBxPeriodo.setEnabled(false);
+            jFrmtdTxtFDataInicio.setEnabled(false);
+            jFrmtdTxtFDataTermino.setEnabled(false);
+            jTxtFSiglaTur.requestFocus();
+
+            jBtnConsultar.setEnabled(true);
+            jBtnInserir.setEnabled(false);
+            jBtnAlterar.setEnabled(false);
+            jBtnExcluir.setEnabled(false);
+        }
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,8 +425,12 @@ public class GuiTurma extends javax.swing.JFrame {
     private javax.swing.JLabel jLblPeriodo;
     private javax.swing.JLabel jLblQtdeVagas;
     private javax.swing.JLabel jLblSiglaTurma;
-    private javax.swing.JTextField jTxtFNome;
+    private javax.swing.JTextField jTxtFDesc;
     private javax.swing.JTextField jTxtFQtdeVagas;
     private javax.swing.JTextField jTxtFSiglaTur;
     // End of variables declaration//GEN-END:variables
+    private DaoTurma daoTurma = null;
+    private Turma turma = null;
+    private Conexao conexao = null;
+    private DaoCurso daoCurso = null;
 }
