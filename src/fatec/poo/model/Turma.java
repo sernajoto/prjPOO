@@ -14,7 +14,6 @@ public class Turma {
     private String dataTermino;
     private String periodo;
     private int qtdeVagas;
-    private String observacoes;
     private Instrutor instrutor;
     private Curso curso;
     private ArrayList<Matricula> matriculas;
@@ -71,14 +70,6 @@ public class Turma {
 
     public void setQtdeVagas(int qtdeVagas) {
         this.qtdeVagas = qtdeVagas;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
     }
 
     public Instrutor getInstrutor() {

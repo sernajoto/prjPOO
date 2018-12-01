@@ -381,7 +381,7 @@ public class GuiInstrutor extends javax.swing.JFrame {
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
         instrutor = null;
 
-        if (Pessoa.validadarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
+        if (Pessoa.validarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
             instrutor = daoInstrutor.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
             if (instrutor == null) {               
                 jBtnExcluir.setEnabled(false);

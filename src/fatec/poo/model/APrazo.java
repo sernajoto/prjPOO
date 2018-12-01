@@ -10,6 +10,7 @@ public class APrazo {
     private String dtVencimento;
     private double taxaJuros;
     private int qtdeMensalidade;
+    private int codAprazo;
 
     public double getTaxaJuros() {
         return taxaJuros;
@@ -41,6 +42,14 @@ public class APrazo {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public int getCodAprazo() {
+        return codAprazo;
+    }
+
+    public void setCodAprazo(int codAprazo) {
+        this.codAprazo = codAprazo;
     }
 
 }

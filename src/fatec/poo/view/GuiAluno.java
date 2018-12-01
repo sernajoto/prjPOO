@@ -374,7 +374,7 @@ public class GuiAluno extends javax.swing.JFrame {
 
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
         aluno = null;
-        if (Pessoa.validadarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
+        if (Pessoa.validarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
             aluno = daoAluno.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
             if (aluno == null) {
                 jBtnInserir.setEnabled(true);

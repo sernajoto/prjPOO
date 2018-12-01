@@ -57,6 +57,7 @@ public class DaoTurma {
     public Turma consultar(String siglaTurma) {
         Turma t = null;
         DaoCurso dc = new DaoCurso(conn);
+        DaoInstrutor di = new DaoInstrutor(conn);
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("SELECT * FROM tb_Turma WHERE siglaTurma = ?");
@@ -69,6 +70,7 @@ public class DaoTurma {
                 t.setDataTermino(rs.getString("dataTermino"));
                 t.setPeriodo(rs.getString("periodo"));
                 t.setQtdeVagas(rs.getInt("qtdeVagas"));
+                t.setInstrutor(di.consultar(rs.getString("cpfInstrutor")));
                 t.setCurso(dc.consultar(rs.getString("siglaCurso")));
             }
         } catch (SQLException ex) {

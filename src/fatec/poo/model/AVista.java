@@ -10,6 +10,7 @@ public class AVista {
     private int agencia;
     private int nCheque;
     private String preData;
+    private int codAvista;
 
     public double getValor() {
         return valor;
@@ -27,20 +28,28 @@ public class AVista {
         this.agencia = agencia;
     }
 
-    public int getNCheque() {
-        return nCheque;
-    }
-
-    public void setNCheque(int nCheque) {
-        this.nCheque = nCheque;
-    }
-
     public String getPreData() {
         return preData;
     }
 
     public void setPreData(String preData) {
         this.preData = preData;
+    }
+
+    public int getnCheque() {
+        return nCheque;
+    }
+
+    public void setnCheque(int nCheque) {
+        this.nCheque = nCheque;
+    }
+
+    public int getCodAvista() {
+        return codAvista;
+    }
+
+    public void setCodAvista(int codAvista) {
+        this.codAvista = codAvista;
     }
 
 }
