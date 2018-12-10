@@ -1,5 +1,6 @@
-# prjPOOGuilhermeAndreBarbara
+# prjPOO
 
+## Fatec Sorocaba
 ## Trabalho da disciplina de Programação Orientada a Objetos
 
 ### Autores
