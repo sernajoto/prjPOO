@@ -21,7 +21,7 @@ public class Turma {
     public Turma(String siglaTurma, String descricao) {
         this.siglaTurma = siglaTurma;
         this.descricao = descricao;
-        matriculas = new ArrayList<Matricula>();
+        matriculas = new ArrayList<>();
     }
 
     public String getSiglaTurma() {
@@ -93,6 +93,11 @@ public class Turma {
         matricula.setTurma(this);
     }
 
+    public void remMatricula(Matricula matricula) {
+        matriculas.remove(matricula);
+        matricula.setTurma(null);
+    }
+    
     public void emitirListaFrquencia() {
 
     }

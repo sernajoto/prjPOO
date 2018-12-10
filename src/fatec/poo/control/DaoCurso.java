@@ -88,18 +88,25 @@ public class DaoCurso {
         }
     }
 
-    public ArrayList<String> listarSiglas() {
-        ArrayList<String> siglas = new ArrayList<String>();
+    public ArrayList<Curso> listarCursos() {
+        ArrayList<Curso> cursos = new ArrayList<>();
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("SELECT sigla FROM tb_Curso");
+            ps = conn.prepareStatement("SELECT * FROM tb_Curso");
             ResultSet rs = ps.executeQuery();
+
             while (rs.next()) {
-                siglas.add(rs.getString("sigla"));
+                Curso c = new Curso(rs.getString("sigla"), rs.getString("nome"));
+                c.setCargaHoraria(rs.getInt("cargaHoraria"));
+                c.setValor(rs.getDouble("valor"));
+                c.setDataVigencia(rs.getString("dataVigencia"));
+                c.setValorHoraInstrutor(rs.getDouble("valorHoraInstrutor"));
+                c.setPrograma(rs.getString("programa"));
+                cursos.add(c);
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-        return siglas;
+        return (cursos);
     }
 }

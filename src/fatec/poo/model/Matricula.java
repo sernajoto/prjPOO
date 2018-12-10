@@ -5,7 +5,7 @@ package fatec.poo.model;
  * @author Guilherme Sernajoto
  */
 public class Matricula {
-    
+
     private String data;
     private int qtdeFaltas;
     private double nota;
@@ -21,11 +21,11 @@ public class Matricula {
     public String getData() {
         return data;
     }
-    
+
     public void setData(String data) {
         this.data = data;
     }
-    
+
     public int getQtdeFaltas() {
         return qtdeFaltas;
     }
@@ -58,10 +58,6 @@ public class Matricula {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
-    
-    public void emitirCarne(){
-        
-    }
 
     public AVista getaVista() {
         return aVista;
@@ -79,4 +75,7 @@ public class Matricula {
         this.aPrazo = aPrazo;
     }
 
+    public void emitirCarne() {
+
+    }
 }

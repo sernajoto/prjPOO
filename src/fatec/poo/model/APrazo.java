@@ -15,11 +15,11 @@ public class APrazo {
     public double getTaxaJuros() {
         return taxaJuros;
     }
-    
+
     public void setTaxaJuros(double taxaJuros) {
         this.taxaJuros = taxaJuros;
     }
-    
+
     public String getDtVencimento() {
         return dtVencimento;
     }

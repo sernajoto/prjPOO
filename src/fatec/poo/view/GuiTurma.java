@@ -3,6 +3,7 @@ package fatec.poo.view;
 import fatec.poo.control.Conexao;
 import fatec.poo.control.DaoCurso;
 import fatec.poo.control.DaoTurma;
+import fatec.poo.model.Curso;
 import fatec.poo.model.Turma;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -254,28 +255,28 @@ public class GuiTurma extends javax.swing.JFrame {
             jBtnAlterar.setEnabled(true);
             jBtnExcluir.setEnabled(true);
         }
-            jTxtFSiglaTur.setEnabled(false);
-            jCbBxCurso.setEnabled(true);
-            jTxtFDesc.setEnabled(true);
-            jTxtFDesc.requestFocus();
-            jTxtFQtdeVagas.setEnabled(true);
-            jCbBxPeriodo.setEnabled(true);
-            jFrmtdTxtFDataInicio.setEnabled(true);
-            jFrmtdTxtFDataTermino.setEnabled(true);
-            
-            jBtnConsultar.setEnabled(false);
+        jTxtFSiglaTur.setEnabled(false);
+        jCbBxCurso.setEnabled(true);
+        jTxtFDesc.setEnabled(true);
+        jTxtFDesc.requestFocus();
+        jTxtFQtdeVagas.setEnabled(true);
+        jCbBxPeriodo.setEnabled(true);
+        jFrmtdTxtFDataInicio.setEnabled(true);
+        jFrmtdTxtFDataTermino.setEnabled(true);
+
+        jBtnConsultar.setEnabled(false);
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
     private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
-        daoCurso = new DaoCurso(conexao.conectar());
         turma = new Turma(jTxtFSiglaTur.getText(), jTxtFDesc.getText());
-        turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
+        turma.setCurso(cursos.get(jCbBxCurso.getSelectedIndex()));
         turma.setQtdeVagas(Integer.parseInt(jTxtFQtdeVagas.getText()));
         turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
         turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
         turma.setDataTermino(jFrmtdTxtFDataTermino.getText());
 
         daoTurma.inserir(turma);
+        
         jCbBxCurso.setSelectedIndex(0);
         jTxtFSiglaTur.setText("");
         jTxtFDesc.setText("");
@@ -303,19 +304,18 @@ public class GuiTurma extends javax.swing.JFrame {
         conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
         daoTurma = new DaoTurma(conexao.conectar());
         daoCurso = new DaoCurso(conexao.conectar());
-        ArrayList<String> siglas = daoCurso.listarSiglas();
+        cursos = daoCurso.listarCursos();
 
-        for (String i : siglas) {
-            jCbBxCurso.addItem(i);
+        for (Curso i : cursos) {
+            jCbBxCurso.addItem(i.getSigla());
         }
 
     }//GEN-LAST:event_formWindowOpened
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Confirma Alteração?") == 0) {
-            daoCurso = new DaoCurso(conexao.conectar());
             turma.setDescricao(jTxtFDesc.getText());
-            turma.setCurso(daoCurso.consultar(jCbBxCurso.getSelectedItem().toString()));
+            turma.setCurso(cursos.get(jCbBxCurso.getSelectedIndex()));
             turma.setQtdeVagas(Integer.parseInt(jTxtFQtdeVagas.getText()));
             turma.setPeriodo(jCbBxPeriodo.getSelectedItem().toString());
             turma.setDataInicio(jFrmtdTxtFDataInicio.getText());
@@ -433,4 +433,5 @@ public class GuiTurma extends javax.swing.JFrame {
     private Turma turma = null;
     private Conexao conexao = null;
     private DaoCurso daoCurso = null;
+    ArrayList<Curso> cursos;
 }

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -116,5 +117,37 @@ public class DaoInstrutor {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
+    }
+
+    public ArrayList<Instrutor> listarInstrutores() {
+        ArrayList<Instrutor> instrutores = new ArrayList<>();
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement("SELECT * FROM tb_Instrutor");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Instrutor i = new Instrutor(rs.getString("nome"), rs.getString("cpf"));
+                i.setDataNasc(rs.getString("dataNasc"));
+                i.setEndereco(rs.getString("endereco"));
+                i.setNumero(rs.getInt("numero"));
+                i.setBairro(rs.getString("bairro"));
+                i.setCidade(rs.getString("cidade"));
+                i.setEstado(rs.getString("estado"));
+                i.setCep(rs.getString("cep"));
+                i.setTelefone(rs.getString("telefone"));
+                i.setCelular(rs.getString("celular"));
+                i.setSexo(rs.getString("sexo"));
+                i.setEstadoCivil(rs.getString("estadoCivil"));
+                i.setRg(rs.getString("rg"));
+                i.setEmail(rs.getString("email"));
+                i.setFormacao(rs.getString("formacao"));
+                i.setAreaAtuacao(rs.getString("areaAtuacao"));
+                instrutores.add(i);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return (instrutores);
     }
 }

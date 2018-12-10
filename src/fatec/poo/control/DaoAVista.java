@@ -11,12 +11,13 @@ import java.sql.SQLException;
  * @author Guilherme Sernajoto
  */
 public class DaoAVista {
+
     private Connection conn;
 
     public DaoAVista(Connection conn) {
         this.conn = conn;
     }
-    
+
     public void inserir(AVista aVista) {
         PreparedStatement ps = null;
         try {
@@ -27,6 +28,12 @@ public class DaoAVista {
             ps.setInt(3, aVista.getnCheque());
             ps.setString(4, aVista.getPreData());
             ps.execute();
+            
+            ps = conn.prepareStatement("SELECT seqPK_AVista.currval FROM dual");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                aVista.setCodAvista(rs.getInt("currval"));
+            }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
@@ -40,7 +47,7 @@ public class DaoAVista {
             ps.setDouble(1, aVista.getValor());
             ps.setInt(2, aVista.getAgencia());
             ps.setInt(3, aVista.getnCheque());
-            ps.setString(4, aVista.getPreData());   
+            ps.setString(4, aVista.getPreData());
             ps.setInt(5, aVista.getCodAvista());
             ps.execute();
         } catch (SQLException ex) {

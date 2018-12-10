@@ -14,7 +14,7 @@ public class Instrutor extends Pessoa {
 
     public Instrutor(String nome, String cpf) {
         super(nome, cpf);
-        turmas = new ArrayList<Turma>();
+        turmas = new ArrayList<>();
     }
 
     public String getFormacao() {
@@ -38,4 +38,8 @@ public class Instrutor extends Pessoa {
         turma.setInstrutor(this);
     }
 
+    public void remTurma(Turma turma) {
+        turmas.remove(turma);
+        turma.setInstrutor(null);
+    }
 }
