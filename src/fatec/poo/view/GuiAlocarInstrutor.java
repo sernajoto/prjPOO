@@ -168,9 +168,9 @@ public class GuiAlocarInstrutor extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnSairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conexao = new Conexao("PrjFinal_POO", "150297");
+        conexao = new Conexao("BD1711035", "BD1711035");
         conexao.setDriver("oracle.jdbc.driver.OracleDriver");
-        conexao.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        conexao.setConnectionString("jdbc:oracle:thin:@apolo:1521:xe");
 
         daoTurma = new DaoTurma(conexao.conectar());
         daoCurso = new DaoCurso(conexao.conectar());
