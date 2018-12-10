@@ -14,7 +14,6 @@ public class Turma {
     private String dataTermino;
     private String periodo;
     private int qtdeVagas;
-    private String observacoes;
     private Instrutor instrutor;
     private Curso curso;
     private ArrayList<Matricula> matriculas;
@@ -22,7 +21,7 @@ public class Turma {
     public Turma(String siglaTurma, String descricao) {
         this.siglaTurma = siglaTurma;
         this.descricao = descricao;
-        matriculas = new ArrayList<Matricula>();
+        matriculas = new ArrayList<>();
     }
 
     public String getSiglaTurma() {
@@ -73,14 +72,6 @@ public class Turma {
         this.qtdeVagas = qtdeVagas;
     }
 
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
     public Instrutor getInstrutor() {
         return instrutor;
     }
@@ -102,6 +93,11 @@ public class Turma {
         matricula.setTurma(this);
     }
 
+    public void remMatricula(Matricula matricula) {
+        matriculas.remove(matricula);
+        matricula.setTurma(null);
+    }
+    
     public void emitirListaFrquencia() {
 
     }

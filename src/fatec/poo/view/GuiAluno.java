@@ -374,7 +374,7 @@ public class GuiAluno extends javax.swing.JFrame {
 
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
         aluno = null;
-        if (Pessoa.validadarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
+        if (Pessoa.validarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
             aluno = daoAluno.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
             if (aluno == null) {
                 jBtnInserir.setEnabled(true);
@@ -418,6 +418,10 @@ public class GuiAluno extends javax.swing.JFrame {
             jFrmtdTxtFRG.setEnabled(true);
             jFrmtdTxtFCel.setEnabled(true);
             jTxtFEmail.setEnabled(true);
+            jCbBxSexo.setSelectedIndex(0);
+            jCbBxEstadoCivil.setSelectedIndex(0);
+            jCbBxEscolaridade.setSelectedIndex(0);
+            jCbBxEstado.setSelectedIndex(0);
 
             jBtnConsultar.setEnabled(false);
         } else {
@@ -433,8 +437,6 @@ public class GuiAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jBtnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInserirActionPerformed
-        daoAluno = new DaoAluno(conexao.conectar());
-
         aluno = new Aluno(jTxtFNome.getText(), jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
         aluno.setDataNasc(jFrmtdTxtFDataNascto.getText());
         aluno.setSexo(jCbBxSexo.getSelectedItem().toString());
@@ -483,6 +485,10 @@ public class GuiAluno extends javax.swing.JFrame {
         jFrmtdTxtFRG.setEnabled(false);
         jFrmtdTxtFCel.setEnabled(false);
         jTxtFEmail.setEnabled(false);
+        jCbBxSexo.setSelectedIndex(0);
+        jCbBxEstadoCivil.setSelectedIndex(0);
+        jCbBxEscolaridade.setSelectedIndex(0);
+        jCbBxEstado.setSelectedIndex(0);
 
         jBtnConsultar.setEnabled(true);
         jBtnInserir.setEnabled(false);
@@ -538,7 +544,10 @@ public class GuiAluno extends javax.swing.JFrame {
         jFrmtdTxtFRG.setEnabled(false);
         jFrmtdTxtFCel.setEnabled(false);
         jTxtFEmail.setEnabled(false);
-
+        jCbBxSexo.setSelectedIndex(0);
+        jCbBxEstadoCivil.setSelectedIndex(0);
+        jCbBxEscolaridade.setSelectedIndex(0);
+        jCbBxEstado.setSelectedIndex(0);
         jBtnConsultar.setEnabled(true);
         jBtnInserir.setEnabled(false);
         jBtnAlterar.setEnabled(false);
@@ -579,6 +588,10 @@ public class GuiAluno extends javax.swing.JFrame {
             jFrmtdTxtFRG.setEnabled(false);
             jFrmtdTxtFCel.setEnabled(false);
             jTxtFEmail.setEnabled(false);
+            jCbBxSexo.setSelectedIndex(0);
+            jCbBxEstadoCivil.setSelectedIndex(0);
+            jCbBxEscolaridade.setSelectedIndex(0);
+            jCbBxEstado.setSelectedIndex(0);
 
             jBtnConsultar.setEnabled(true);
             jBtnInserir.setEnabled(false);
@@ -664,5 +677,4 @@ public class GuiAluno extends javax.swing.JFrame {
     private DaoAluno daoAluno = null;
     private Aluno aluno = null;
     private Conexao conexao = null;
-    private Pessoa pessoa = null;
 }

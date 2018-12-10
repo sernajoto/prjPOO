@@ -2,8 +2,8 @@ package fatec.poo.view;
 
 /**
  *
- * @author Andre Constancio
  * @author Guilherme Sernajoto
+ * @author André Constancio
  */
 public class GuiMenu extends javax.swing.JFrame {
 
@@ -124,7 +124,10 @@ public class GuiMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuIteEfetMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteEfetMatriculaActionPerformed
-
+        GuiEfetuarMatricula guiEfetuarMatricula = new GuiEfetuarMatricula();
+        guiEfetuarMatricula.setSize(650, 450);
+        guiEfetuarMatricula.setLocationRelativeTo(null);
+        guiEfetuarMatricula.setVisible(true);
     }//GEN-LAST:event_jMenuIteEfetMatriculaActionPerformed
 
     private void jMenuIteSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteSairActionPerformed
@@ -160,7 +163,10 @@ public class GuiMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuIteAlunoActionPerformed
 
     private void jMenuIteAlocInstrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuIteAlocInstrutorActionPerformed
-
+        GuiAlocarInstrutor guiAlocarInstrutor = new GuiAlocarInstrutor();
+        guiAlocarInstrutor.setSize(650, 450);
+        guiAlocarInstrutor.setLocationRelativeTo(null);
+        guiAlocarInstrutor.setVisible(true);
     }//GEN-LAST:event_jMenuIteAlocInstrutorActionPerformed
 
     public static void main(String args[]) {

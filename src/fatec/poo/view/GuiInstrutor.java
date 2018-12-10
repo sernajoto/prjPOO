@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author André Constancio
  * @author Guilherme Sernajoto
+ * @author André Constancio
  */
 public class GuiInstrutor extends javax.swing.JFrame {
 
@@ -381,9 +381,9 @@ public class GuiInstrutor extends javax.swing.JFrame {
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
         instrutor = null;
 
-        if (Pessoa.validadarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
+        if (Pessoa.validarCPF(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""))) {
             instrutor = daoInstrutor.consultar(jFrmtdTxtFCPF.getText().replaceAll("[.,-]", ""));
-            if (instrutor == null) {               
+            if (instrutor == null) {
                 jBtnExcluir.setEnabled(false);
                 jBtnInserir.setEnabled(true);
             } else {
@@ -425,7 +425,7 @@ public class GuiInstrutor extends javax.swing.JFrame {
             jFrmtdTxtFCel.setEnabled(true);
             jTxtFAreaAtuac.setEnabled(true);
             jTxtFNome.requestFocus();
-            
+
             jBtnConsultar.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(null, "CPF Inválido");
@@ -469,16 +469,16 @@ public class GuiInstrutor extends javax.swing.JFrame {
 
         jFrmtdTxtFCPF.setText("");
         jTxtFNome.setText("");
-        jCbBxSexo.setSelectedItem("M");
+        jCbBxSexo.setSelectedIndex(0);
         jTxtFEndereco.setText("");
         jTxtFBairro.setText("");
         jTxtFCidade.setText("");
-        jCbBxEstado.setSelectedItem("AC");
+        jCbBxEstado.setSelectedIndex(0);
         jFrmtdTxtFRG.setText("");
         jTxtFFormacao.setText("");
         jTxtFEmail.setText("");
         jFrmtdTxtFDataNascto.setText("");
-        jCbBxEstadoCiv.setSelectedItem("Casado");
+        jCbBxEstadoCiv.setSelectedIndex(0);
         jTxtFNoEndereco.setText("");
         jFrmtdTxtFCEP.setText("");
         jFrmtdTxtFTelRes.setText("");
@@ -537,16 +537,16 @@ public class GuiInstrutor extends javax.swing.JFrame {
 
         jFrmtdTxtFCPF.setText("");
         jTxtFNome.setText("");
-        jCbBxSexo.setSelectedItem("M");
+        jCbBxSexo.setSelectedIndex(0);
         jTxtFEndereco.setText("");
         jTxtFBairro.setText("");
         jTxtFCidade.setText("");
-        jCbBxEstado.setSelectedItem("AC");
+        jCbBxEstado.setSelectedIndex(0);
         jFrmtdTxtFRG.setText("");
         jTxtFFormacao.setText("");
         jTxtFEmail.setText("");
         jFrmtdTxtFDataNascto.setText("");
-        jCbBxEstadoCiv.setSelectedItem("Casado");
+        jCbBxEstadoCiv.setSelectedIndex(0);
         jTxtFNoEndereco.setText("");
         jFrmtdTxtFCEP.setText("");
         jFrmtdTxtFTelRes.setText("");
@@ -580,16 +580,16 @@ public class GuiInstrutor extends javax.swing.JFrame {
 
             jFrmtdTxtFCPF.setText("");
             jTxtFNome.setText("");
-            jCbBxSexo.setSelectedItem("M");
+            jCbBxSexo.setSelectedIndex(0);
             jTxtFEndereco.setText("");
             jTxtFBairro.setText("");
             jTxtFCidade.setText("");
-            jCbBxEstado.setSelectedItem("AC");
+            jCbBxEstado.setSelectedIndex(0);
             jFrmtdTxtFRG.setText("");
             jTxtFFormacao.setText("");
             jTxtFEmail.setText("");
             jFrmtdTxtFDataNascto.setText("");
-            jCbBxEstadoCiv.setSelectedItem("Casado");
+            jCbBxEstadoCiv.setSelectedIndex(0);
             jTxtFNoEndereco.setText("");
             jFrmtdTxtFCEP.setText("");
             jFrmtdTxtFTelRes.setText("");

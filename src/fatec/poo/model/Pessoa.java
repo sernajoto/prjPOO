@@ -147,7 +147,7 @@ public class Pessoa {
         this.email = email;
     }
 
-    public static boolean validadarCPF(String cpf) {
+    public static boolean validarCPF(String cpf) {
         int i, d1, d2, mpl;
         boolean flag = false;
 
