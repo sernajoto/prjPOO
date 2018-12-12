@@ -6,4 +6,4 @@
 ### Autores
 Guilherme Sernajoto  
 André Constancio  
-Barbara Sajo  
+Bárbara Sajo  
